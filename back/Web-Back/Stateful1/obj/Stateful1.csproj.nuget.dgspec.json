@@ -1,0 +1,93 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Stateful1\\Stateful1.csproj": {}
+  },
+  "projects": {
+    "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Stateful1\\Stateful1.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Stateful1\\Stateful1.csproj",
+        "projectName": "Stateful1",
+        "projectPath": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Stateful1\\Stateful1.csproj",
+        "packagesPath": "C:\\Users\\Moco26\\.nuget\\packages\\",
+        "outputPath": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Stateful1\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Moco26\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.ServiceFabric.Services": {
+              "target": "Package",
+              "version": "[7.1.1951, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+              "version": "[8.0.5, 8.0.5]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-x64",
+              "version": "[8.0.5, 8.0.5]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+              "version": "[8.0.5, 8.0.5]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
