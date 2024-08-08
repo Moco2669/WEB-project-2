@@ -16,6 +16,6 @@ function App() {
   );
 }
 
-export const API_ADDRESS: string = "http://localhost/taxi";
+export const API_ADDRESS: string = "http://localhost:8655/taxi/";
 
 export default App;

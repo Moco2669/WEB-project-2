@@ -39,7 +39,7 @@
     <ProjectReference Include="..\Stateful1\Stateful1.csproj" />
     <ProjectReference Include="..\Stateless1\Stateless1.csproj" />
     <ProjectReference Include="..\Web1\Web1.csproj">
-      <ServiceLaunchUrl>http://localhost:{ServicePort}/weatherforecast</ServiceLaunchUrl>
+      <ServiceLaunchUrl>http://localhost:{ServicePort}/</ServiceLaunchUrl>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
