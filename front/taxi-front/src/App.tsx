@@ -16,6 +16,8 @@ function App() {
   );
 }
 
+require('dotenv').config();
+
 export const API_ADDRESS: string = "http://localhost:8655/taxi/";
 
 export default App;

@@ -13,12 +13,14 @@
   <ItemGroup>
     <PackageReference Include="Azure.Data.Tables" Version="12.9.0" />
     <PackageReference Include="Azure.Storage.Common" Version="12.20.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="8.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.7" />
     <PackageReference Include="Microsoft.ServiceFabric.AspNetCore.Kestrel" Version="7.1.1951" />
     <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DTO\" />
+    <ProjectReference Include="..\Common\Common.csproj" />
   </ItemGroup>
 
 </Project>

@@ -5,11 +5,13 @@ VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "Web-Back", "Web-Back\Web-Back.sfproj", "{8899B5CD-C284-446F-BE5A-52F8E5B1D132}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stateless1", "Stateless1\Stateless1.csproj", "{52C5080F-C632-485D-8169-C48CF7F22697}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stateless1", "Stateless1\Stateless1.csproj", "{52C5080F-C632-485D-8169-C48CF7F22697}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stateful1", "Stateful1\Stateful1.csproj", "{C36CEA44-9DEE-4BF0-81C6-A846A7D864A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stateful1", "Stateful1\Stateful1.csproj", "{C36CEA44-9DEE-4BF0-81C6-A846A7D864A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web1", "Web1\Web1.csproj", "{09AFCF7F-8915-458A-9C0E-8644F264F1CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web1", "Web1\Web1.csproj", "{09AFCF7F-8915-458A-9C0E-8644F264F1CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,14 @@ Global
 		{09AFCF7F-8915-458A-9C0E-8644F264F1CF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{09AFCF7F-8915-458A-9C0E-8644F264F1CF}.Release|x64.ActiveCfg = Release|Any CPU
 		{09AFCF7F-8915-458A-9C0E-8644F264F1CF}.Release|x64.Build.0 = Release|Any CPU
+		{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}.Debug|x64.Build.0 = Debug|Any CPU
+		{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}.Release|x64.ActiveCfg = Release|Any CPU
+		{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -13,16 +13,13 @@ const LandingPage : React.FC = () =>{
     const [loginModel, setLoginModel] = useState<ILogin>(defaultLogin);
     const { isLoggedIn, setToken, setEmail} = useContext(AuthContext);
     const navigate = useNavigate();
+    const [loginError, setLoginError] = useState('');
 
     useEffect(() => {
-        const fetch = async () => {
-            let response = await TestServer();
-            if(response){
-                setOdziv(response);
-            }
-        };
-        fetch();
-    })
+        if(isLoggedIn){
+            navigate("/");
+        }
+    }, [isLoggedIn, navigate]);
 
     const handleChange=(
         event: React.ChangeEvent<HTMLInputElement>,
@@ -36,7 +33,15 @@ const LandingPage : React.FC = () =>{
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        // fali provera
+
+        const error: string = ValidateLogin(loginModel);
+
+        if(error.length > 0){
+            setLoginError(error);
+            return;
+        }
+
+        setLoginError('');
         const token: IToken | null = await LoginService(loginModel);
         if(token){
             setToken(token);
@@ -46,9 +51,23 @@ const LandingPage : React.FC = () =>{
 
             navigate("/");
         } else {
-            //fali greska
+            setLoginError("Wrong username or password! ");
         }
-    }
+    };
+
+    const ValidateLogin = (loginModel: ILogin): string => {
+        var error: string = "";
+        if(!loginModel.email.trim()){
+            error += "Email field empty! ";
+        }
+        if(!loginModel.email.includes('@')){ // doradi validaciju da nema spejsova
+            error += "Email not valid! ";
+        }
+        if(loginModel.password.trim().length<8){
+            error += "Password too short! ";
+        }
+        return error;
+    };
 
     return(
     <div className='flex justify-end mx-48 relative mb-8'>
@@ -68,10 +87,13 @@ const LandingPage : React.FC = () =>{
                 </div>
                 <div className='flex items-center justify-between'>
                     <p className='text-sm text-gray-500'>No account? <a className='text-primary-600' href='/register'>Sign up</a></p>
+                    <button type='submit' className='select-none rounded-lg'>
+                        Log in
+                    </button>
+                    {loginError && (
+                        <p className='mt-4 text-primary-600'>{loginError}</p>
+                    )}
                 </div>
-                <button type='submit' className='select-none rounded-lg'>
-                    Log in
-                </button>
             </div>
         </form>
     <p>Ovo je dobijeno od strane servera: </p>

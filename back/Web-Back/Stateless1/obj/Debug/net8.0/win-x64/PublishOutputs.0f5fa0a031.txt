@@ -181,7 +181,7 @@ D:\SNIMANJA\FAKS JU\4GODINA\WEB_2_PROJEKT\WEB-project-2\back\Web-Back\Web-Back\p
 D:\SNIMANJA\FAKS JU\4GODINA\WEB_2_PROJEKT\WEB-project-2\back\Web-Back\Web-Back\pkg\Debug\Stateless1Pkg\Code\hostfxr.dll
 D:\SNIMANJA\FAKS JU\4GODINA\WEB_2_PROJEKT\WEB-project-2\back\Web-Back\Web-Back\pkg\Debug\Stateless1Pkg\Code\hostpolicy.dll
 D:\SNIMANJA\FAKS JU\4GODINA\WEB_2_PROJEKT\WEB-project-2\back\Web-Back\Web-Back\pkg\Debug\Stateless1Pkg\Code\mscordaccore.dll
-D:\SNIMANJA\FAKS JU\4GODINA\WEB_2_PROJEKT\WEB-project-2\back\Web-Back\Web-Back\pkg\Debug\Stateless1Pkg\Code\mscordaccore_amd64_amd64_8.0.724.31311.dll
+D:\SNIMANJA\FAKS JU\4GODINA\WEB_2_PROJEKT\WEB-project-2\back\Web-Back\Web-Back\pkg\Debug\Stateless1Pkg\Code\mscordaccore_amd64_amd64_8.0.824.36612.dll
 D:\SNIMANJA\FAKS JU\4GODINA\WEB_2_PROJEKT\WEB-project-2\back\Web-Back\Web-Back\pkg\Debug\Stateless1Pkg\Code\mscordbi.dll
 D:\SNIMANJA\FAKS JU\4GODINA\WEB_2_PROJEKT\WEB-project-2\back\Web-Back\Web-Back\pkg\Debug\Stateless1Pkg\Code\mscorrc.dll
 D:\SNIMANJA\FAKS JU\4GODINA\WEB_2_PROJEKT\WEB-project-2\back\Web-Back\Web-Back\pkg\Debug\Stateless1Pkg\Code\msquic.dll
