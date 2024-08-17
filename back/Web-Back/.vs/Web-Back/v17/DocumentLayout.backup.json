@@ -3,72 +3,68 @@
   "WorkspaceRootPath": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\common\\azurestorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|solutionrelative:common\\azurestorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\web1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\web1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\common\\automapper\\userprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|solutionrelative:common\\automapper\\userprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\common\\dto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|solutionrelative:common\\dto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\common\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|solutionrelative:common\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\jwt\\jwt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\jwt\\jwt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\common\\dto\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|solutionrelative:common\\dto\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\jwt\\jwtoptionssetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\jwt\\jwtoptionssetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\common\\dto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|solutionrelative:common\\dto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{52C5080F-C632-485D-8169-C48CF7F22697}|Stateless1\\Stateless1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\stateless1\\serviceeventsource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{52C5080F-C632-485D-8169-C48CF7F22697}|Stateless1\\Stateless1.csproj|solutionrelative:stateless1\\serviceeventsource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{52C5080F-C632-485D-8169-C48CF7F22697}|Stateless1\\Stateless1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\stateless1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{52C5080F-C632-485D-8169-C48CF7F22697}|Stateless1\\Stateless1.csproj|solutionrelative:stateless1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\jwt\\jwt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\jwt\\jwt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\common\\azurestorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|solutionrelative:common\\azurestorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\packageroot\\servicemanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\packageroot\\servicemanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\jwt\\jwtoptionssetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\jwt\\jwtoptionssetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\common\\dto\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|solutionrelative:common\\dto\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52C5080F-C632-485D-8169-C48CF7F22697}|Stateless1\\Stateless1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\stateless1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52C5080F-C632-485D-8169-C48CF7F22697}|Stateless1\\Stateless1.csproj|solutionrelative:stateless1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\web1.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
@@ -86,37 +82,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "JWT.cs",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\JWT\\JWT.cs",
               "RelativeDocumentMoniker": "Web1\\JWT\\JWT.cs",
               "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\JWT\\JWT.cs",
               "RelativeToolTip": "Web1\\JWT\\JWT.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAASwBgAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAMzMzMzMJwBgAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-16T15:55:51.144Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\appsettings.json",
               "RelativeDocumentMoniker": "Web1\\appsettings.json",
               "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\appsettings.json",
               "RelativeToolTip": "Web1\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-08-16T13:36:48.198Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-16T13:36:48.198Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "AzureStorageService.cs",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\AzureStorageService.cs",
               "RelativeDocumentMoniker": "Common\\AzureStorageService.cs",
@@ -129,7 +124,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\Model\\User.cs",
               "RelativeDocumentMoniker": "Common\\Model\\User.cs",
@@ -142,20 +137,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "UserDTO.cs",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\DTO\\UserDTO.cs",
               "RelativeDocumentMoniker": "Common\\DTO\\UserDTO.cs",
               "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\DTO\\UserDTO.cs",
               "RelativeToolTip": "Common\\DTO\\UserDTO.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAAAA4AAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA0wB0AAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-15T12:57:54.58Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "LoginDTO.cs",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\DTO\\LoginDTO.cs",
               "RelativeDocumentMoniker": "Common\\DTO\\LoginDTO.cs",
@@ -163,38 +158,24 @@
               "RelativeToolTip": "Common\\DTO\\LoginDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-15T11:48:15.749Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-15T11:48:15.749Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserProfile.cs",
-              "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\AutoMapper\\UserProfile.cs",
-              "RelativeDocumentMoniker": "Common\\AutoMapper\\UserProfile.cs",
-              "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\AutoMapper\\UserProfile.cs",
-              "RelativeToolTip": "Common\\AutoMapper\\UserProfile.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-14T21:14:36.515Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "UserController.cs",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Web1\\Controllers\\UserController.cs",
               "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\Controllers\\UserController.cs",
               "RelativeToolTip": "Web1\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAFwAAACgMzMzM/MwwGgAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAALUAAADAzszMzAwswLYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-13T10:02:02.936Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 4,
               "Title": "ServiceEventSource.cs",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Stateless1\\ServiceEventSource.cs",
               "RelativeDocumentMoniker": "Stateless1\\ServiceEventSource.cs",
@@ -215,24 +196,22 @@
               "RelativeToolTip": "Stateless1\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T15:45:04.616Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-09T15:45:04.616Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 16,
               "Title": "Web1",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\Web1.csproj",
               "RelativeDocumentMoniker": "Web1\\Web1.csproj",
               "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\Web1.csproj",
               "RelativeToolTip": "Web1\\Web1.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-08-07T14:01:03.662Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-07T14:01:03.662Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "WeatherForecastController.cs",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\Controllers\\WeatherForecastController.cs",
               "RelativeDocumentMoniker": "Web1\\Controllers\\WeatherForecastController.cs",
@@ -240,12 +219,11 @@
               "RelativeToolTip": "Web1\\Controllers\\WeatherForecastController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-07T13:53:28.364Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-07T13:53:28.364Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 10,
               "Title": "JWTOptionsSetup.cs",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\JWT\\JWTOptionsSetup.cs",
               "RelativeDocumentMoniker": "Web1\\JWT\\JWTOptionsSetup.cs",
@@ -253,38 +231,36 @@
               "RelativeToolTip": "Web1\\JWT\\JWTOptionsSetup.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-12T20:33:46.643Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-12T20:33:46.643Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\Program.cs",
               "RelativeDocumentMoniker": "Web1\\Program.cs",
               "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\Program.cs",
               "RelativeToolTip": "Web1\\Program.cs",
-              "ViewState": "AgIAAAEAAAAgAAAAAAAhwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAgAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-07T13:28:00.397Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-07T13:28:00.397Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Web1.cs",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\Web1.cs",
               "RelativeDocumentMoniker": "Web1\\Web1.cs",
               "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\Web1.cs",
               "RelativeToolTip": "Web1\\Web1.cs",
-              "ViewState": "AgIAADQAAAAgm5mZmdkiwEYAAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAEUAAABAMTMzMzMYwFMAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-04T17:41:47.787Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Web1\\Properties\\launchSettings.json",
@@ -292,12 +268,11 @@
               "RelativeToolTip": "Web1\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-08-04T17:41:12.335Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-04T17:41:12.335Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 8,
               "Title": "ServiceManifest.xml",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\PackageRoot\\ServiceManifest.xml",
               "RelativeDocumentMoniker": "Web1\\PackageRoot\\ServiceManifest.xml",
@@ -305,12 +280,11 @@
               "RelativeToolTip": "Web1\\PackageRoot\\ServiceManifest.xml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
-              "WhenOpened": "2024-08-07T16:26:00.993Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-07T16:26:00.993Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "WeatherForecast.cs",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\WeatherForecast.cs",
               "RelativeDocumentMoniker": "Web1\\WeatherForecast.cs",
@@ -318,12 +292,11 @@
               "RelativeToolTip": "Web1\\WeatherForecast.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-04T17:41:30.569Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-04T17:41:30.569Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 17,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Stateful1\\Program.cs",
               "RelativeDocumentMoniker": "Stateful1\\Program.cs",
@@ -331,8 +304,7 @@
               "RelativeToolTip": "Stateful1\\Program.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAvwBwAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-01T20:56:21.787Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-01T20:56:21.787Z"
             }
           ]
         }

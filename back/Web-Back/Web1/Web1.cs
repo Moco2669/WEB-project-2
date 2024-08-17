@@ -49,7 +49,7 @@ namespace Web1
                                 options.AddPolicy("AllowLocalhost",
                                     builder =>
                                     {
-                                        builder.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod();
+                                        builder.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod().AllowCredentials();
                                     });
                             });
                         builder.Services.AddSingleton(provider => new MapperConfiguration(cfg =>
@@ -62,6 +62,7 @@ namespace Web1
                         builder.Services.AddAuthentication(options =>
                         {
                             options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                            options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                             options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
                         }).AddCookie().AddGoogle(GoogleDefaults.AuthenticationScheme, options =>
                         {
@@ -69,6 +70,7 @@ namespace Web1
                             options.ClientSecret = builder.Configuration.GetSection("GoogleKeys:ClientSecret").Value;
                             options.Scope.Add("profile");
                             options.Scope.Add("email");
+                            options.SaveTokens = true;
                         });
                         builder.Services.ConfigureOptions<JWTOptionsSetup>();
                         builder.Services.ConfigureOptions<JWTBearerOptionsSetup>();

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Internal;
 
 namespace Common.DTO
 {
@@ -14,6 +15,19 @@ namespace Common.DTO
         public string address { get; set; }
         public UserType usertype { get; set; }
         public IFormFile image { get; set; }
+
+        /*public static IFormFile ConvertBase64ToIFormFile(string base64String, string fileName)
+        {
+            var bytes = Convert.FromBase64String(base64String);
+            var stream = new MemoryStream(bytes);
+            var file = new FormFile(stream, 0, bytes.Length, fileName, fileName)
+            {
+                Headers = new HeaderDictionary(),
+                ContentType = "image/jpeg"
+            };
+
+            return file;
+        }*/
     }
 
     public enum UserType { Admin, Driver, User }
