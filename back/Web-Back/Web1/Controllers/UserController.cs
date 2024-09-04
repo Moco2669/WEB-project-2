@@ -18,6 +18,9 @@ using System.Net.Http.Headers;
 using System.Text.Json;
 using Microsoft.AspNetCore.Authorization;
 using Newtonsoft.Json.Linq;
+using Microsoft.ServiceFabric.Services.Remoting.Client;
+using System.Text;
+using System.Security.Cryptography;
 
 namespace Web1.Controllers
 {
@@ -26,13 +29,23 @@ namespace Web1.Controllers
     public class UserController : ControllerBase
     {
         private readonly JWT.JWT jwt;
-        private readonly AzureStorageService storageService;
         private readonly IMapper _mapper;
+        private readonly IUserStorageService userStorageProxy;
+
+        private string HashPassword(string password)
+        {
+            using (var sha256 = SHA256.Create())
+            {
+                var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+            }
+        }
 
         public UserController(IMapper mapper, JWT.JWT jwt)
         {
             this.jwt = jwt;
-            storageService = new AzureStorageService();
+            Uri serviceUri = new Uri("fabric:/Web-Back/UserStorageService");
+            userStorageProxy = ServiceProxy.Create<IUserStorageService>(serviceUri);
             _mapper = mapper;
         }
 
@@ -40,7 +53,10 @@ namespace Web1.Controllers
         [Route("login")]
         public async Task<IActionResult> Login([FromBody] LoginDTO loginModel)
         {
-            return Ok(new { token = jwt.GenerateToken(loginModel.username) });
+            var user = await userStorageProxy.GetUser(loginModel.username);
+            if (user == null) { return NotFound(); }
+            if (user.password == HashPassword(loginModel.password)) { return Ok(new { token = jwt.GenerateToken(loginModel.username, user.usertype) }); };
+            return NotFound();
         }
 
         [HttpPost]
@@ -48,128 +64,46 @@ namespace Web1.Controllers
         public async Task<IActionResult> Register([FromForm] UserDTO userDto)
         {
             // check if exists
-            var table = storageService.GetTable("Users");
-            var result1 = table.GetEntityIfExists<User>(userDto.username, userDto.username);
-            if (result1.HasValue) { return NotFound(); }
+            var user = await userStorageProxy.GetUser(userDto.username);
+            if (user != null) { return NotFound(); }
 
-                // save image
+            string imageBlobLink = null;
+
+            if(userDto.image == null) { return BadRequest(); }
+
+            imageBlobLink = await userStorageProxy.InsertUserImage(userDto.image);
+            if (userDto.usertype == UserType.Driver)
+            {
+                var result = await userStorageProxy.InsertDriver(userDto, imageBlobLink);
+                if (!result) { return BadRequest(); }
+                return Ok(new { token = jwt.GenerateToken(userDto.username, user.usertype) });
+            }
+
+            // if not driver insert into regular table
+            var result1 = await userStorageProxy.InsertUser(userDto, imageBlobLink);
+            if (!result1) { return BadRequest(); }
+            return Ok(new { token = jwt.GenerateToken(userDto.username, user.usertype) });
+        }
+
+        [HttpPost]
+        [Route("register-google")]
+        public async Task<IActionResult> GoogleRegister([FromForm]UserDTO userDto)
+        {
+            var result1 = await userStorageProxy.GetUser(userDto.username);
+            if (result1 != null) { return Ok(new { token = jwt.GenerateToken(userDto.username, result1.usertype) }); }
+
             if (userDto.image != null)
             {
-                    string tempImageFolder = Path.Combine(Directory.GetCurrentDirectory(), "TempImages");
-                    if (!Directory.Exists(tempImageFolder))
-                    {
-                        Directory.CreateDirectory(tempImageFolder);
-                    }
-
-                    string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(userDto.image.FileName);
-                    string pathToSave = Path.Combine(tempImageFolder, uniqueFileName);
-
-                    using (var stream = new FileStream(pathToSave, FileMode.Create))
-                    {
-                        await userDto.image.CopyToAsync(stream);
-                    }
-
-                    var blobClient = storageService.GetBlob("userimages", uniqueFileName);
-                    using (var fileStream = System.IO.File.OpenRead(pathToSave))
-                    {
-                        await blobClient.UploadAsync(fileStream, true);
-                    }
-
-                    if (System.IO.File.Exists(pathToSave))
-                    {
-                        System.IO.File.Delete(pathToSave);
-                    }
-
-                var userEntity = _mapper.Map<User>(userDto);
-                userEntity.imageBlobLink = uniqueFileName;
-                var result = table.AddEntity<User>(userEntity);
-                if (result.IsError)
+                var imageBlobLink = await userStorageProxy.InsertUserImage(userDto.image);
+                var result = await userStorageProxy.InsertUser(userDto, imageBlobLink);
+                if (!result)
                 {
                     return BadRequest();
                 }
-
-                return Ok(new { token = jwt.GenerateToken(userDto.username) });
+                //missing cleanup of imageblob but we're not paid for security :D
+                return Ok(new { token = jwt.GenerateToken(userDto.username, userDto.usertype) });
             }
             return BadRequest();
-        }
-
-        [HttpGet]
-        [Route("google-register")]
-        public IActionResult GoogleRegister()
-        {
-            var redirectUrl = Url.Action("GoogleResponse");
-            var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
-            return Challenge(properties, GoogleDefaults.AuthenticationScheme);
-        }
-
-        [HttpGet]
-        [Route("google-response")]
-        public IActionResult GoogleResponse()
-        {
-            var redirectUrl = "http://localhost:3000/google-callback?token=";
-
-            var result = HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme).Result;
-            if (!result.Succeeded)
-            {
-                return BadRequest("Google authentication failed.");
-            }
-
-            var accessToken = result.Properties.GetTokenValue("access_token");
-
-            // Request user info from Google
-            var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-            var response = httpClient.GetStringAsync("https://www.googleapis.com/oauth2/v2/userinfo").Result;
-            var userInfo = JsonDocument.Parse(response).RootElement;
-
-            var imagelink = userInfo.GetProperty("picture").GetString();
-
-            var claims = result.Principal.Identities.FirstOrDefault()?.Claims.Select(claim => new
-            {
-                claim.Issuer,
-                claim.OriginalIssuer,
-                claim.Type,
-                claim.Value,
-            });
-
-            var email = result.Principal.FindFirstValue(ClaimTypes.Email);
-            var firstname = result.Principal.FindFirstValue(ClaimTypes.Name);
-            var lastname = result.Principal.FindFirstValue(ClaimTypes.Surname);
-            var address = result.Principal.FindFirstValue(ClaimTypes.StreetAddress);
-            var birthdate = result.Principal.FindFirstValue(ClaimTypes.DateOfBirth);
-            //var imagelink = result.Principal.Identities.FirstOrDefault()?.Claims.FirstOrDefault(c => c.Type == "urn:google:image")?.Value;
-            var username = email;
-            DateTime birthdateActual;
-
-            var table = storageService.GetTable("Users");
-            var result1 = table.GetEntityIfExists<User>(username, username);
-            if (result1.HasValue) { return Redirect(redirectUrl + jwt.GenerateToken(username)); }
-
-            string uniqueFileName = null;
-            if (!string.IsNullOrEmpty(imagelink))
-            {
-                using (var httpClient2 = new HttpClient())
-                {
-                    var imageBytes = httpClient2.GetByteArrayAsync(imagelink).Result;
-                    uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(imagelink);
-
-                    var blobClient = storageService.GetBlob("userimages", uniqueFileName);
-                    using (var stream = new MemoryStream(imageBytes))
-                    {
-                        blobClient.UploadAsync(stream, true).Wait();
-                    }
-                }
-            }
-
-            var userDto = new UserDTO { email = email, firstname = firstname, lastname = lastname, address = address, birthdate = DateTime.TryParse(birthdate, out birthdateActual) ? birthdateActual : DateTime.Now, username = username, password = Guid.NewGuid().ToString(), usertype = UserType.User };
-            var userEntity = _mapper.Map<User>(userDto);
-            userEntity.imageBlobLink = uniqueFileName;
-            var result2 = table.AddEntity<User>(userEntity);
-            if (result2.IsError)
-            {
-                return BadRequest();
-            }
-            return Redirect(redirectUrl + jwt.GenerateToken(username));
         }
 
         [HttpGet]
@@ -178,35 +112,49 @@ namespace Web1.Controllers
         public async Task<IActionResult> GetUserInfo()
         {
             var username = HttpContext.User.FindFirst(ClaimTypes.Sid)?.Value;
-
             if (string.IsNullOrEmpty(username))
             {
                 return Unauthorized("Invalid token.");
             }
 
-            var table = storageService.GetTable("Users");
-            var result = table.GetEntityIfExists<User>(username, username);
-
-            if (!result.HasValue)
-            {
-                return NotFound("User not found.");
-            }
-
-            var userEntity = result.Value;
-            var userDto = _mapper.Map<UserDTO>(userEntity);
-            if(userEntity.imageBlobLink != null)
-            {
-                var blobClient = storageService.GetBlob("userimages", userEntity.imageBlobLink);
-                var imageStream = await blobClient.OpenReadAsync();
-
-                using (var memoryStream = new MemoryStream())
-                {
-                    await imageStream.CopyToAsync(memoryStream);
-                    userDto.image = new FormFile(memoryStream, 0, memoryStream.Length, userEntity.imageBlobLink, userEntity.imageBlobLink);
-                }
-            }
+            var userDto = await userStorageProxy.GetUser(username);
+            if (userDto == null) { return NotFound(); }
 
             return Ok(userDto);
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        [Route("get-waiting-users")]
+        public async Task<IActionResult> GetWaitingUsers()
+        {
+            var username = HttpContext.User.FindFirst(ClaimTypes.Sid)?.Value;
+            if (string.IsNullOrEmpty(username))
+            {
+                return Unauthorized("Invalid token.");
+            }
+
+            List<UserDTO> waitingUsers = await userStorageProxy.GetWaitingUsers();
+            return Ok(waitingUsers);
+        }
+
+        [HttpPut]
+        [Authorize(Roles = "Admin")]
+        [Route("validate-user")]
+        public async Task<IActionResult> ValidateUser(string username)
+        {
+            var adminUsername = HttpContext.User.FindFirst(ClaimTypes.Sid)?.Value;
+            if (string.IsNullOrEmpty(username))
+            {
+                return Unauthorized("Invalid token.");
+            }
+
+            var result = await userStorageProxy.ValidateUser(username);
+            if (!result)
+            {
+                return BadRequest();
+            }
+            return Ok();
         }
     }
 }

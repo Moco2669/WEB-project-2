@@ -17,6 +17,7 @@ namespace Common.AutoMapper
                 .ForMember(dest => dest.PartitionKey, opt => opt.MapFrom(src => src.username))
                 .ForMember(dest => dest.RowKey, opt => opt.MapFrom(src => src.username))
                 .ForMember(dest => dest.password, opt => opt.MapFrom<PasswordHashResolver>());
+            CreateMap<User, UserDTO>();
         }
     }
 }

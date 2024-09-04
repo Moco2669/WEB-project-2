@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Common.DTO;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -15,7 +16,7 @@ namespace Web1.JWT
             _options = options.Value;
         }
 
-        public string GenerateToken(string username)
+        public string GenerateToken(string username, UserType userType)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.UTF8.GetBytes(_options.SecretKey);
@@ -23,6 +24,7 @@ namespace Web1.JWT
             var claims = new Claim[]
             {
                 new Claim(ClaimTypes.Sid, username),
+                new Claim(ClaimTypes.Role, userType.ToString())
             };
             var signingCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken(_options.Issuer, _options.Audience, claims, null, DateTime.UtcNow.AddHours(8), signingCredentials);

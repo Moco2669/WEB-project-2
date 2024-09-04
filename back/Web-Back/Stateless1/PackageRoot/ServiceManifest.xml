@@ -8,6 +8,7 @@
     <!-- This is the name of your ServiceType. 
          This name must match the string used in the RegisterServiceAsync call in Program.cs. -->
     <StatelessServiceType ServiceTypeName="Stateless1Type" />
+	  <StatelessServiceType ServiceTypeName="UserStorageServiceType" />
   </ServiceTypes>
 
   <!-- Code package is your service executable. -->

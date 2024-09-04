@@ -59,19 +59,6 @@ namespace Web1
                         builder.Services.AddSingleton<StatelessServiceContext>(serviceContext);
                         builder.Services.AddScoped<JWT.JWT>();
                         builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer();
-                        builder.Services.AddAuthentication(options =>
-                        {
-                            options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                            options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                            options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
-                        }).AddCookie().AddGoogle(GoogleDefaults.AuthenticationScheme, options =>
-                        {
-                            options.ClientId = builder.Configuration.GetSection("GoogleKeys:ClientId").Value;
-                            options.ClientSecret = builder.Configuration.GetSection("GoogleKeys:ClientSecret").Value;
-                            options.Scope.Add("profile");
-                            options.Scope.Add("email");
-                            options.SaveTokens = true;
-                        });
                         builder.Services.ConfigureOptions<JWTOptionsSetup>();
                         builder.Services.ConfigureOptions<JWTBearerOptionsSetup>();
                         builder.WebHost

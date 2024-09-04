@@ -358,7 +358,10 @@ D:\SNIMANJA\FAKS JU\4GODINA\WEB_2_PROJEKT\WEB-project-2\back\Web-Back\Web1\obj\D
 D:\SNIMANJA\FAKS JU\4GODINA\WEB_2_PROJEKT\WEB-project-2\back\Web-Back\Web1\obj\Debug\net8.0\win-x64\PubTmp\Out\Microsoft.ServiceFabric.ReliableCollection.Interop.dll
 D:\SNIMANJA\FAKS JU\4GODINA\WEB_2_PROJEKT\WEB-project-2\back\Web-Back\Web1\obj\Debug\net8.0\win-x64\PubTmp\Out\Microsoft.ServiceFabric.Data.Interfaces.dll
 D:\SNIMANJA\FAKS JU\4GODINA\WEB_2_PROJEKT\WEB-project-2\back\Web-Back\Web1\obj\Debug\net8.0\win-x64\PubTmp\Out\Microsoft.ServiceFabric.Diagnostics.dll
+D:\SNIMANJA\FAKS JU\4GODINA\WEB_2_PROJEKT\WEB-project-2\back\Web-Back\Web1\obj\Debug\net8.0\win-x64\PubTmp\Out\Microsoft.ServiceFabric.FabricTransport.V2.dll
+D:\SNIMANJA\FAKS JU\4GODINA\WEB_2_PROJEKT\WEB-project-2\back\Web-Back\Web1\obj\Debug\net8.0\win-x64\PubTmp\Out\Microsoft.ServiceFabric.FabricTransport.dll
 D:\SNIMANJA\FAKS JU\4GODINA\WEB_2_PROJEKT\WEB-project-2\back\Web-Back\Web1\obj\Debug\net8.0\win-x64\PubTmp\Out\Microsoft.ServiceFabric.Services.dll
+D:\SNIMANJA\FAKS JU\4GODINA\WEB_2_PROJEKT\WEB-project-2\back\Web-Back\Web1\obj\Debug\net8.0\win-x64\PubTmp\Out\Microsoft.ServiceFabric.Services.Remoting.dll
 D:\SNIMANJA\FAKS JU\4GODINA\WEB_2_PROJEKT\WEB-project-2\back\Web-Back\Web1\obj\Debug\net8.0\win-x64\PubTmp\Out\Newtonsoft.Json.dll
 D:\SNIMANJA\FAKS JU\4GODINA\WEB_2_PROJEKT\WEB-project-2\back\Web-Back\Web1\obj\Debug\net8.0\win-x64\PubTmp\Out\System.ClientModel.dll
 D:\SNIMANJA\FAKS JU\4GODINA\WEB_2_PROJEKT\WEB-project-2\back\Web-Back\Web1\obj\Debug\net8.0\win-x64\PubTmp\Out\System.IdentityModel.Tokens.Jwt.dll

@@ -7,8 +7,10 @@ import IToken from './interfaces/IToken';
 import { AuthContext } from './contexts/AuthContext';
 import { jwtDecode } from 'jwt-decode';
 import LoginService from './services/LoginService';
-import GoogleSignInService from './services/GoogleSignInService';
-import handleGoogleSignIn from './services/GoogleSignInService';
+import GoogleSignInService from './ui-elements/GoogleSignInButton';
+import handleGoogleSignIn from './ui-elements/GoogleSignInButton';
+import googleLogin from './ui-elements/GoogleSignInButton';
+import GoogleSignInButton from './ui-elements/GoogleSignInButton';
 
 const LandingPage : React.FC = () =>{
     const [odzivServera, setOdziv] = useState('');
@@ -95,7 +97,7 @@ const LandingPage : React.FC = () =>{
                 </div>
             </div>
         </form>
-        <button className='select-none rounded-lg p-3 bg-lime-600' onClick={GoogleSignInService}>Sign in via Google</button>
+        <GoogleSignInButton></GoogleSignInButton>
     </div>
     );
 }

@@ -10,7 +10,7 @@ const LoginService = async(credentials: ILogin): Promise<IToken | null> =>{
         if(response.status === 200){
             console.log(response.data);
             return {token:response.data.token};
-        } else{
+        } else {
             console.log(response);
             return null;
         }

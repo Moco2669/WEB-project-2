@@ -21,10 +21,11 @@ namespace Stateless1
                 // When Service Fabric creates an instance of this service type,
                 // an instance of the class is created in this host process.
 
-                ServiceRuntime.RegisterServiceAsync("Stateless1Type",
-                    context => new Stateless1(context)).GetAwaiter().GetResult();
+                ServiceRuntime.RegisterServiceAsync("Stateless1Type", context => new Stateless1(context)).GetAwaiter().GetResult();
+                ServiceRuntime.RegisterServiceAsync("UserStorageServiceType", context => new UserStorageService(context)).GetAwaiter().GetResult();
 
                 ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, typeof(Stateless1).Name);
+                ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, typeof(UserStorageService).Name);
 
                 // Prevents this host process from terminating so services keep running.
                 Thread.Sleep(Timeout.Infinite);

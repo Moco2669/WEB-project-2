@@ -14,6 +14,7 @@ namespace Common.DTO
         public DateTime birthdate { get { return BIRTHDATE; } set { BIRTHDATE = DateTime.SpecifyKind(value, DateTimeKind.Utc); } }
         public string address { get; set; }
         public UserType usertype { get; set; }
+        public VerifyStatus? verifystatus { get; set; }
         public IFormFile image { get; set; }
 
         /*public static IFormFile ConvertBase64ToIFormFile(string base64String, string fileName)
@@ -31,4 +32,5 @@ namespace Common.DTO
     }
 
     public enum UserType { Admin, Driver, User }
+    public enum VerifyStatus { Waiting, Verified, Rejected }
 }
