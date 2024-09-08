@@ -12,7 +12,7 @@ const Register : React.FC = () => {
     const [registerModel, setRegisterModel] = useState<IRegister>(defaultRegister);
     const [registerError, setRegisterError] = useState('');
     const navigate = useNavigate();
-    const {isLoggedIn, setToken, setEmail} = useContext(AuthContext);
+    const {isLoggedIn, setToken} = useContext(AuthContext);
     const [confirmPass, setConfirmPass] = useState('');
 
     useEffect(() => {
@@ -56,10 +56,6 @@ const Register : React.FC = () => {
         if(typeof result === "object"){
             setToken(result);
             localStorage.setItem("token", result.token ?? "");
-            const decodedToken: IToken = jwtDecode(result.token ?? "");
-            setEmail(decodedToken.email ?? "");
-
-            navigate("/");
         } else {
             setRegisterError("Register error: "+ result);
         }

@@ -5,48 +5,39 @@ import IAuthContext from "../interfaces/IAuthContext";
 
 export const AuthContext = createContext<IAuthContext>({
     token:null,
-    email:"",
     setToken:()=>{},
-    setEmail:()=>{},
     isLoggedIn:false,
-    isTokenValid:false,
 });
 
 export const AuthProvider: React.FC<{ children: React.ReactNode}> = ({
     children,
 }) => {
     const [token, setToken] = useState<IToken | null>(null);
-    const [email, setEmail] = useState<string | null>(null);
+    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
     useEffect(()=>{
         const storedToken = localStorage.getItem("token");
+        if(storedToken === undefined){
+            setIsLoggedIn(false);
+            setToken(null);
+        }
         if(storedToken){
             setToken({token:storedToken});
-
-            const decodedToken: IToken = jwtDecode(storedToken);
-            setEmail(decodedToken.email ?? "");
         }
     }, []);
 
-    const isLoggedIn = !!token;
-
-    const isTokenValid = useMemo(() => {
-        if(!token) return false;
-
-        const decodedToken:{exp:number} = jwtDecode(token.token ?? "");
-        const currentTime = Date.now() / 1000;
-
-        if(decodedToken.exp <= currentTime){
+    useEffect(()=>{
+        if(token!=null && token.token != null){
+            localStorage.setItem("token", token.token);
+        } else {
             localStorage.removeItem("token");
-            setToken(null);
-            setEmail("");
-            return false;
         }
-        return true;
+        console.log("USE EFFECT CONSOLE LOG " + token);
+        setIsLoggedIn(!!token);
     }, [token]);
 
     return(
-        <AuthContext.Provider value={{token, email, setToken, setEmail, isLoggedIn, isTokenValid}}>
+        <AuthContext.Provider value={{token, setToken, isLoggedIn}}>
             {children}
         </AuthContext.Provider>
     )

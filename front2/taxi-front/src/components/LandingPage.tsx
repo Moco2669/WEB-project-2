@@ -11,17 +11,18 @@ import GoogleSignInService from './ui-elements/GoogleSignInButton';
 import handleGoogleSignIn from './ui-elements/GoogleSignInButton';
 import googleLogin from './ui-elements/GoogleSignInButton';
 import GoogleSignInButton from './ui-elements/GoogleSignInButton';
+import useAuth from './contexts/useAuth';
 
 const LandingPage : React.FC = () =>{
     const [odzivServera, setOdziv] = useState('');
     const [loginModel, setLoginModel] = useState<ILogin>(defaultLogin);
-    const { isLoggedIn, setToken, setEmail} = useContext(AuthContext);
+    const { isLoggedIn, setToken, token} = useAuth();
     const navigate = useNavigate();
     const [loginError, setLoginError] = useState('');
 
     useEffect(() => {
         if(isLoggedIn){
-            navigate("/");
+            navigate("/home");
         }
     }, [isLoggedIn, navigate]);
 
@@ -46,14 +47,13 @@ const LandingPage : React.FC = () =>{
         }
 
         setLoginError('');
-        const token: IToken | null = await LoginService(loginModel);
-        if(token){
-            setToken(token);
-            localStorage.setItem("token", token.token ?? "");
-            const decodedToken: IToken = jwtDecode(token.token ?? "");
-            setEmail(decodedToken.email ?? "");
-
-            navigate("/");
+        const tokenPovratni: IToken | null = await LoginService(loginModel);
+        if(tokenPovratni){
+            console.log("WE GOT THE TOKEN" + token);
+            console.log(tokenPovratni);
+            setToken(tokenPovratni);
+            localStorage.setItem("token", tokenPovratni.token ?? "");
+            console.log(token);
         } else {
             setLoginError("Wrong username or password! ");
         }

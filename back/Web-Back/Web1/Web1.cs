@@ -17,6 +17,7 @@ using AutoMapper;
 using Common.AutoMapper;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Text.Json.Serialization;
 
 namespace Web1
 {
@@ -56,6 +57,10 @@ namespace Web1
                         {
                             cfg.AddProfile(new UserProfile());
                         }).CreateMapper());
+                        builder.Services.AddControllers().AddJsonOptions(options =>
+                            {
+                                options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                            });
                         builder.Services.AddSingleton<StatelessServiceContext>(serviceContext);
                         builder.Services.AddScoped<JWT.JWT>();
                         builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer();

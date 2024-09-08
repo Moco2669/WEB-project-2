@@ -47,8 +47,7 @@ const GoogleSignInButton: React.FC = () => {
         });
         if(response.status === 200 || response.status === 204){
             console.log({token:response.data.token});
-            setToken(response.data.token);
-            localStorage.setItem("token", response.data.token);
+            setToken({token:response.data.token});
         }
     } catch (error) {
         console.error('Google Sign In Failed:', error);

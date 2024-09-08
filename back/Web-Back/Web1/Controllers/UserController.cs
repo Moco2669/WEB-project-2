@@ -41,6 +41,18 @@ namespace Web1.Controllers
             }
         }
 
+        private byte[] ConvertIFormFileToByteArray(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                return null;
+
+            using (var memoryStream = new MemoryStream())
+            {
+                file.CopyTo(memoryStream);
+                return memoryStream.ToArray();
+            }
+        }
+
         public UserController(IMapper mapper, JWT.JWT jwt)
         {
             this.jwt = jwt;
@@ -70,19 +82,21 @@ namespace Web1.Controllers
             string imageBlobLink = null;
 
             if(userDto.image == null) { return BadRequest(); }
-
-            imageBlobLink = await userStorageProxy.InsertUserImage(userDto.image);
+            userDto.imagebytearray = ConvertIFormFileToByteArray(userDto.image);
+            var imagename = userDto.image.FileName;
+            userDto.image = null;
+            imageBlobLink = await userStorageProxy.InsertUserImage(userDto.imagebytearray, imagename);
             if (userDto.usertype == UserType.Driver)
             {
                 var result = await userStorageProxy.InsertDriver(userDto, imageBlobLink);
                 if (!result) { return BadRequest(); }
-                return Ok(new { token = jwt.GenerateToken(userDto.username, user.usertype) });
+                return Ok(new { token = jwt.GenerateToken(userDto.username, userDto.usertype) });
             }
 
             // if not driver insert into regular table
             var result1 = await userStorageProxy.InsertUser(userDto, imageBlobLink);
             if (!result1) { return BadRequest(); }
-            return Ok(new { token = jwt.GenerateToken(userDto.username, user.usertype) });
+            return Ok(new { token = jwt.GenerateToken(userDto.username, userDto.usertype) });
         }
 
         [HttpPost]
@@ -94,7 +108,10 @@ namespace Web1.Controllers
 
             if (userDto.image != null)
             {
-                var imageBlobLink = await userStorageProxy.InsertUserImage(userDto.image);
+                userDto.imagebytearray = ConvertIFormFileToByteArray(userDto.image);
+                var imagename = userDto.image.FileName;
+                userDto.image = null;
+                var imageBlobLink = await userStorageProxy.InsertUserImage(userDto.imagebytearray, imagename);
                 var result = await userStorageProxy.InsertUser(userDto, imageBlobLink);
                 if (!result)
                 {
@@ -140,13 +157,18 @@ namespace Web1.Controllers
 
         [HttpPut]
         [Authorize(Roles = "Admin")]
-        [Route("validate-user")]
+        [Route("validate-user/{username}")]
         public async Task<IActionResult> ValidateUser(string username)
         {
             var adminUsername = HttpContext.User.FindFirst(ClaimTypes.Sid)?.Value;
             if (string.IsNullOrEmpty(username))
             {
-                return Unauthorized("Invalid token.");
+                return BadRequest();
+            }
+            var userDto = await userStorageProxy.GetUser(adminUsername);
+            if (userDto.usertype != UserType.Admin)
+            {
+                return Unauthorized("User is not admin.");
             }
 
             var result = await userStorageProxy.ValidateUser(username);

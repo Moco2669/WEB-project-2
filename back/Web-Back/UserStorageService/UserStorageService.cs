@@ -60,12 +60,15 @@ namespace UserStorageService
         {
             try
             {
+                VerifyStatus status = VerifyStatus.Verified;
                 var result = usersTableClient.GetEntityIfExists<User>(username, username);
                 if (!result.HasValue)
                 {
+                    status = VerifyStatus.Waiting;
                     result = newUsersTableClient.GetEntityIfExists<User>(username, username);
                     if (!result.HasValue)
                     {
+                        status = VerifyStatus.Rejected;
                         result = rejectedUsersTableClient.GetEntityIfExists<User>(username, username);
                         if (!result.HasValue)
                         {
@@ -77,7 +80,8 @@ namespace UserStorageService
                 var userEntity = result.Value;
                 var userDto = mapper.Map<UserDTO>(userEntity);
                 if(userEntity.imageBlobLink == null) { return userDto; }
-                userDto.image = await GetUserImage(userEntity.imageBlobLink);
+                userDto.imagebase64 = await GetUserImage(userEntity.imageBlobLink);
+                userDto.verifystatus = status;
 
                 return userDto;
             }
@@ -87,19 +91,19 @@ namespace UserStorageService
             }
         }
 
-        public async Task<IFormFile> GetUserImage(string imageBlobLink)
+        public async Task<string> GetUserImage(string imageBlobLink)
         {
             try
             {
                 var blob = blobContainerClient.GetBlobClient(imageBlobLink);
                 var imageStream = blob.OpenRead();
-                IFormFile image = null;
+                string imageString = "";
                 using (var memoryStream = new MemoryStream())
                 {
                     imageStream.CopyTo(memoryStream);
-                    image = new FormFile(memoryStream, 0, memoryStream.Length, imageBlobLink, imageBlobLink);
+                    imageString = Convert.ToBase64String(memoryStream.ToArray());
                 }
-                return image;
+                return imageString;
             }
             catch (Exception ex)
             {
@@ -107,13 +111,13 @@ namespace UserStorageService
             }
         }
 
-        public async Task<string> InsertUserImage(IFormFile image)
+        public async Task<string> InsertUserImage(byte[] imageArray, string fileName)
         {
             try
             {
-                var uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
+                var uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(fileName);
                 var blob = blobContainerClient.GetBlobClient(uniqueFileName);
-                using(var stream = image.OpenReadStream())
+                using(var stream = new MemoryStream(imageArray))
                 {
                     blob.Upload(stream);
                 }
@@ -190,6 +194,18 @@ namespace UserStorageService
             } catch(Exception ex)
             {
                 throw new InvalidOperationException("Error validating user", ex);
+            }
+        }
+
+        public byte[] ConvertIFormFileToByteArray(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                return null;
+
+            using (var memoryStream = new MemoryStream())
+            {
+                file.CopyTo(memoryStream);
+                return memoryStream.ToArray();
             }
         }
     }
