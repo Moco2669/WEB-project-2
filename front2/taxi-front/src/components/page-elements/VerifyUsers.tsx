@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getUnverifiedUsersService, verifyUserService, rejectUserService } from '../services/VerifyUserService';
+import { getUnverifiedUsersService, verifyUserService2, rejectUserService } from '../services/VerifyUserService';
 import IUser from '../interfaces/IUser';
 
 interface VerifyUsersProps {
@@ -10,7 +10,7 @@ const VerifyUsers: React.FC<VerifyUsersProps> = ({ token }) => {
     const [unverifiedUsers, setUnverifiedUsers] = useState<IUser[]>([]);
 
     useEffect(() => {
-        // Fetch the unverified users when the component loads
+
         const fetchUnverifiedUsers = async () => {
             const users = await getUnverifiedUsersService(token);
             setUnverifiedUsers(users);
@@ -21,7 +21,7 @@ const VerifyUsers: React.FC<VerifyUsersProps> = ({ token }) => {
     }, [token]);
 
     const handleVerifyUser = async (username: string) => {
-        await verifyUserService(username, token);
+        await verifyUserService2(username, token);
         // Optionally refetch the list after verification
         setUnverifiedUsers(unverifiedUsers.filter(user => user.username !== username));
     };

@@ -12,11 +12,21 @@ export const getUnverifiedUsersService = async (token: string) => {
 };
 
 export const verifyUserService = async (username: string, token: string) => {
-    await axios.put(API_ADDRESS + `user/validate-user/${username}`, {
+    const response = await axios.put(API_ADDRESS + 'user/validate-user/${username}', {
         headers: {
             Authorization: `Bearer ${token}`
         }
     });
+    console.log(response.data);
+};
+
+export const verifyUserService2 = async (username: string, token: string) => {
+    const response = await axios.put(API_ADDRESS + `user/validate-user-new`, {username:username}, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
+    console.log(response.data);
 };
 
 export const rejectUserService = async (username: string, token: string) => {

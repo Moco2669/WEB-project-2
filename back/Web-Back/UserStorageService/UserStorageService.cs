@@ -191,9 +191,29 @@ namespace UserStorageService
                 result1 = usersTableClient.AddEntity<User>(userEntity);
                 if (result1.IsError) { return false; }
                 return true;
-            } catch(Exception ex)
+            }
+            catch(Exception ex)
             {
                 throw new InvalidOperationException("Error validating user", ex);
+            }
+        }
+
+        public async Task<bool> RejectUser(string username)
+        {
+            try
+            {
+                var result = newUsersTableClient.GetEntityIfExists<User>(username, username);
+                if (!result.HasValue) { throw new Exception("User doesn't exist"); }
+                var userEntity = result.Value;
+                var result1 = newUsersTableClient.DeleteEntity(userEntity);
+                if (result1.IsError) { return false; }
+                result1 = rejectedUsersTableClient.AddEntity<User>(userEntity);
+                if (result1.IsError) { return false; }
+                return true;
+            }
+            catch(Exception ex)
+            {
+                throw new InvalidOperationException("Error when rejecing user", ex);
             }
         }
 

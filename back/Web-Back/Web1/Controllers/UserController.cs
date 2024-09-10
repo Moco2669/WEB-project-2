@@ -178,5 +178,30 @@ namespace Web1.Controllers
             }
             return Ok();
         }
+
+        [HttpPut]
+        [Route("validate-user-new")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> ValidateUserNew(Request1 req)
+        {
+            var result = await userStorageProxy.ValidateUser(req.username);
+            if (!result) { return BadRequest(); }
+            return Ok();
+        }
+
+        [HttpPut]
+        [Route("reject")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> RejectUser(Request1 req)
+        {
+            var result = await userStorageProxy.RejectUser(req.username);
+            if (!result) { return BadRequest(); }
+            return Ok();
+        }
+
+        public class Request1
+        {
+            public string username { get; set; }
+        }
     }
 }

@@ -36,7 +36,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Stateful1\Stateful1.csproj" />
+    <ProjectReference Include="..\RideService\RideService.csproj" />
     <ProjectReference Include="..\UserStorageService\UserStorageService.csproj" />
     <ProjectReference Include="..\Web1\Web1.csproj">
       <ServiceLaunchUrl>http://localhost:{ServicePort}/</ServiceLaunchUrl>

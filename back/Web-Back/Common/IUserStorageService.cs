@@ -18,7 +18,7 @@ namespace Common
         public Task<UserDTO> GetUser(string username);
         public Task<List<UserDTO>> GetWaitingUsers();
         public Task<string> GetUserImage(string imageBlobLink);
-
         public Task<bool> ValidateUser(string username);
+        public Task<bool> RejectUser(string username);
     }
 }
