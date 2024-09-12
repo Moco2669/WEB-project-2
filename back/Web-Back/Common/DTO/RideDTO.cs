@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Common.DTO
@@ -24,8 +25,10 @@ namespace Common.DTO
         public TimeSpan driverarrivetime { get { return driverArriveTime; } set { driverArriveTime = value; } }
         public TimeSpan traveltime { get { return travelTime; } set { travelTime = value; } }
         public DateTime arrivetime { get { return endDateTime; } set { endDateTime = DateTime.SpecifyKind(value, DateTimeKind.Utc); } }
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public RideStatus status { get; set; }
+        public int rating { get; set; }
     }
 
-    public enum RideStatus { Estimated, Waiting, InProgress }
+    public enum RideStatus { Estimated, Waiting, InProgress, Done }
 }

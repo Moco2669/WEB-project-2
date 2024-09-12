@@ -30,7 +30,7 @@ export const verifyUserService2 = async (username: string, token: string) => {
 };
 
 export const rejectUserService = async (username: string, token: string) => {
-    await axios.post(`/api/users/reject`, `"${username}"`, {
+    await axios.post(`/api/users/reject`, {username:username}, {
         headers: {
             Authorization: `Bearer ${token}`
         }

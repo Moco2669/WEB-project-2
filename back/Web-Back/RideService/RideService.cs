@@ -14,6 +14,9 @@ using System.Runtime.CompilerServices;
 using Microsoft.ServiceFabric.Services.Remoting;
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 using Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime;
+using Azure.Data.Tables;
+using AutoMapper;
+using Common.AutoMapper;
 
 namespace RideService
 {
@@ -22,11 +25,22 @@ namespace RideService
     /// </summary>
     internal sealed class RideService : StatefulService, IRideService
     {
+        private readonly AzureStorageService storage;
+        private readonly IMapper mapper;
         IReliableDictionary<string, RideDTO> userRides;
         IReliableDictionary<string, RideDTO> driverRides;
+        private TableClient ridesTableClient;
+
         public RideService(StatefulServiceContext context)
             : base(context)
         {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile<RideProfile>();
+            });
+            mapper = config.CreateMapper();
+            storage = new AzureStorageService();
+            ridesTableClient = storage.GetTable("Rides");
         }
 
         private async Task<RideStatus> GetStatus(string user)
@@ -41,19 +55,19 @@ namespace RideService
             return ride.status;
         }
 
-        private async Task<RideDTO> GetRide(string user)
+        public async Task<RideDTO> GetRide(string user)
         {
             RideDTO ride = null;
             using (var tx = this.StateManager.CreateTransaction())
             {
                 var result = await userRides.TryGetValueAsync(tx, user);
-                if(!result.HasValue) { throw new InvalidOperationException("Ride doesn't exist"); }
+                if(!result.HasValue) { return null; }
                 ride = result.Value;
             }
             return ride;
         }
 
-        private async Task<List<RideDTO>> GetWaiting()
+        private async Task<List<RideDTO>> GetWithStatus(RideStatus status)
         {
             List<RideDTO> waiting = new List<RideDTO>();
             using (var tx = this.StateManager.CreateTransaction())
@@ -63,7 +77,7 @@ namespace RideService
                 while (await enumerator.MoveNextAsync(default(CancellationToken)))
                 {
                     var current = enumerator.Current;
-                    if(current.Value.status == RideStatus.Waiting)
+                    if(current.Value.status == status)
                     {
                         waiting.Add(current.Value);
                     }
@@ -71,6 +85,23 @@ namespace RideService
                 await tx.CommitAsync();
             }
             return waiting;
+        }
+
+        private async Task<List<RideDTO>> GetAll()
+        {
+            List<RideDTO> rides = new List<RideDTO>();
+            using (var tx = this.StateManager.CreateTransaction())
+            {
+                var enumerable = await userRides.CreateEnumerableAsync(tx);
+                var enumerator = enumerable.GetAsyncEnumerator();
+                while (await enumerator.MoveNextAsync(default(CancellationToken)))
+                {
+                    var current = enumerator.Current;
+                    rides.Add(current.Value);
+                }
+                await tx.CommitAsync();
+            }
+            return rides;
         }
 
         private async Task AddOrUpdateRide(RideDTO dto)
@@ -90,11 +121,13 @@ namespace RideService
 
                 Random random = new Random();
                 dto.distance = (random.NextDouble() * (15-0.1)) + 0.1;
+                dto.status = RideStatus.Estimated;
                 double travelTimeVariance = dto.distance * (random.NextDouble() / 10); // 0 - 10% of the distance
                 double travelTimeAdjustment = random.Next(-1, 1) == -1 ? -1 : 1;
                 dto.traveltime = TimeSpan.FromSeconds((dto.distance + travelTimeVariance*travelTimeAdjustment));
                 dto.price = dto.distance * 100; // 100din / km
                 dto.price = dto.price + (random.Next(-1, 1) == -1 ? -1 : 1) * ((dto.price / 10) * random.NextDouble()); // variance
+                dto.rating = 0;
 
                 await AddOrUpdateRide(dto);
 
@@ -141,6 +174,7 @@ namespace RideService
                 ride.driver = driver;
                 ride.driverarrivetime = TimeSpan.FromSeconds((random.NextDouble() * (15 - 0.1)) + 0.1);
                 ride.starttime = DateTime.Now;
+                ride.arrivetime = ride.starttime + ride.driverarrivetime + ride.traveltime;
 
                 await AddOrUpdateRide(ride);
                 return ride;
@@ -151,11 +185,33 @@ namespace RideService
             }
         }
 
+        public async Task<bool> RateRide(string user, int rating)
+        {
+            try
+            {
+                var ride = await GetRide(user);
+                if(ride.status != RideStatus.Done)
+                {
+                    throw new InvalidOperationException("Ride is not done");
+                }
+                ride.rating = rating;
+
+                var rideEntity = mapper.Map<RideDTO, Ride>(ride);
+                var result = ridesTableClient.AddEntity<Ride>(rideEntity);
+                if (result.IsError) { return false; }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Error when rating ride", ex);
+            }
+        }
+
         public async Task<List<RideDTO>> GetWaitingRides()
         {
             try
             {
-                return await GetWaiting();
+                return await GetWithStatus(RideStatus.Waiting);
             }
             catch (Exception ex)
             {
@@ -189,9 +245,20 @@ namespace RideService
             userRides = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, RideDTO>>("userRides");
             driverRides = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, RideDTO>>("driverRides");
 
+            await userRides.ClearAsync();
+
             while (true)
             {
                 cancellationToken.ThrowIfCancellationRequested();
+                var inProggressRides = await GetWithStatus(RideStatus.InProgress);
+                foreach(RideDTO ride in  inProggressRides)
+                {
+                    if(ride.arrivetime <= DateTime.UtcNow)
+                    {
+                        ride.status = RideStatus.Done;
+                        await AddOrUpdateRide(ride);
+                    }
+                }
 
                 using (var tx = this.StateManager.CreateTransaction())
                 {

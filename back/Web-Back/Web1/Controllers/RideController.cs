@@ -31,7 +31,7 @@ namespace Web1.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "User")]
         [Route("estimate")]
         public async Task<IActionResult> EstimateRide(RideRequest ride)
         {
@@ -46,7 +46,7 @@ namespace Web1.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "User")]
         [Route("confirm")]
         public async Task<IActionResult> ConfirmRide()
         {
@@ -60,7 +60,7 @@ namespace Web1.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Driver")]
         [Route("accept")]
         public async Task<IActionResult> AcceptRide(AcceptRideRequest ride)
         {
@@ -69,7 +69,8 @@ namespace Web1.Controllers
             {
                 return Unauthorized("Invalid token.");
             }
-            var acceptedRide = await rideServiceProxy.AcceptRIde(drivername, ride.user);
+            var acceptedRide = await rideServiceProxy.AcceptRide(ride.user, drivername);
+            await WebSocketHandler.NotifyUserAsync(ride.user, acceptedRide);
             return Ok(acceptedRide);
         }
 

@@ -18,6 +18,7 @@ using Common.AutoMapper;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Text.Json.Serialization;
+using Web1.Controllers;
 
 namespace Web1
 {
@@ -62,6 +63,7 @@ namespace Web1
                                 options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
                             });
                         builder.Services.AddSingleton<StatelessServiceContext>(serviceContext);
+                        builder.Services.AddSingleton<WebSocketHandler>();
                         builder.Services.AddScoped<JWT.JWT>();
                         builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer();
                         builder.Services.ConfigureOptions<JWTOptionsSetup>();
@@ -74,8 +76,16 @@ namespace Web1
                         builder.Services.AddControllers();
                         var app = builder.Build();
                         app.UseCors("AllowLocalhost");
+                        app.UseRouting();
                         app.UseAuthentication();
                         app.UseAuthorization();
+                        app.UseWebSockets();
+                        app.UseEndpoints(
+                            endpoints =>
+                            {
+                                var webSocketHandler = endpoints.ServiceProvider.GetRequiredService<WebSocketHandler>();
+                                endpoints.Map("/ws/ride-notifications", webSocketHandler.HandleWebSocketAsync);
+                            });
                         app.MapControllers();
                         
                         return app;

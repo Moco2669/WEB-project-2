@@ -70,7 +70,7 @@ const HomePage : React.FC = () =>{
 
     const handleShowNewDrives = () => {
         resetLeftScreen();
-        setShowNewDrive(true);
+        setShowNewDrives(true);
     }
 
     const handleShowVerifyUsers = () => {

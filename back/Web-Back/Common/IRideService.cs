@@ -12,7 +12,7 @@ namespace Common
     {
         public Task<RideDTO> EstimateRide(RideDTO dto);
         public Task<RideDTO> ConfirmRide(string user);
-        public Task<RideDTO> AcceptRIde(string user, string driver);
+        public Task<RideDTO> AcceptRide(string user, string driver);
         public Task<List<RideDTO>> GetWaitingRides();
     }
 }

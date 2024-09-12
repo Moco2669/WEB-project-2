@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\controllers\\ridecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\controllers\\ridecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\common\\dto\\ridedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|solutionrelative:common\\dto\\ridedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EB217068-C42F-4E17-923D-4E082C414DB8}|RideService\\RideService.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\rideservice\\rideservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EB217068-C42F-4E17-923D-4E082C414DB8}|RideService\\RideService.csproj|solutionrelative:rideservice\\rideservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\common\\irideservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|solutionrelative:common\\irideservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\common\\automapper\\rideprofile..cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|solutionrelative:common\\automapper\\rideprofile..cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{48AAD870-65D6-44A7-8181-77A0E164AA39}|UserStorageService\\UserStorageService.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\userstorageservice\\userstorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,20 +23,36 @@
       "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\common\\iuserstorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|solutionrelative:common\\iuserstorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\common\\model\\ride.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|solutionrelative:common\\model\\ride.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\common\\dto\\ridedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|solutionrelative:common\\dto\\ridedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\common\\azurestorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|solutionrelative:common\\azurestorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\controllers\\websockethandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\controllers\\websockethandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\common\\dto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|solutionrelative:common\\dto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\web1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\web1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\common\\irideservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|solutionrelative:common\\irideservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\controllers\\ridecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\controllers\\ridecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\common\\dto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|solutionrelative:common\\dto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\common\\iuserstorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|solutionrelative:common\\iuserstorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{48AAD870-65D6-44A7-8181-77A0E164AA39}|UserStorageService\\UserStorageService.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\userstorageservice\\serviceeventsource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -45,30 +61,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{EB217068-C42F-4E17-923D-4E082C414DB8}|RideService\\RideService.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\rideservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EB217068-C42F-4E17-923D-4E082C414DB8}|RideService\\RideService.csproj|solutionrelative:rideservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\jwt\\jwt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\jwt\\jwt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\jwt\\jwtoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\jwt\\jwtoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\common\\azurestorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|solutionrelative:common\\azurestorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\web1\\jwt\\jwtbeareroptionssetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09AFCF7F-8915-458A-9C0E-8644F264F1CF}|Web1\\Web1.csproj|solutionrelative:web1\\jwt\\jwtbeareroptionssetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\common\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60DE1085-EE8B-4C3B-B38B-D0207B287D0B}|Common\\Common.csproj|solutionrelative:common\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{48AAD870-65D6-44A7-8181-77A0E164AA39}|UserStorageService\\UserStorageService.csproj|d:\\snimanja\\faks ju\\4godina\\web_2_projekt\\web-project-2\\back\\web-back\\userstorageservice\\packageroot\\servicemanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
@@ -110,96 +102,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RideController.cs",
-              "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\Controllers\\RideController.cs",
-              "RelativeDocumentMoniker": "Web1\\Controllers\\RideController.cs",
-              "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\Controllers\\RideController.cs",
-              "RelativeToolTip": "Web1\\Controllers\\RideController.cs",
-              "ViewState": "AgIAAA8AAACYZmZmZqY4wBwAAADCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-10T12:14:49.98Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RideDTO.cs",
-              "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\DTO\\RideDTO.cs",
-              "RelativeDocumentMoniker": "Common\\DTO\\RideDTO.cs",
-              "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\DTO\\RideDTO.cs",
-              "RelativeToolTip": "Common\\DTO\\RideDTO.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAAAAoAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-09T18:05:39.586Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "RideService.cs",
-              "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\RideService\\RideService.cs",
-              "RelativeDocumentMoniker": "RideService\\RideService.cs",
-              "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\RideService\\RideService.cs",
-              "RelativeToolTip": "RideService\\RideService.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAAAEEAAAAJAAAAAAAAAA==",
+              "Title": "RideProfile..cs",
+              "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\AutoMapper\\RideProfile..cs",
+              "RelativeDocumentMoniker": "Common\\AutoMapper\\RideProfile..cs",
+              "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\AutoMapper\\RideProfile..cs",
+              "RelativeToolTip": "Common\\AutoMapper\\RideProfile..cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-09T15:55:31.897Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IRideService.cs",
-              "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\IRideService.cs",
-              "RelativeDocumentMoniker": "Common\\IRideService.cs",
-              "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\IRideService.cs",
-              "RelativeToolTip": "Common\\IRideService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-09T15:51:17.186Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserStorageService.cs",
-              "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\UserStorageService\\UserStorageService.cs",
-              "RelativeDocumentMoniker": "UserStorageService\\UserStorageService.cs",
-              "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\UserStorageService\\UserStorageService.cs",
-              "RelativeToolTip": "UserStorageService\\UserStorageService.cs",
-              "ViewState": "AgIAADcAAAAAmJmZmZkZwD8AAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T21:49:58.784Z",
+              "WhenOpened": "2024-09-12T21:40:11.418Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "IUserStorageService.cs",
-              "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\IUserStorageService.cs",
-              "RelativeDocumentMoniker": "Common\\IUserStorageService.cs",
-              "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\IUserStorageService.cs",
-              "RelativeToolTip": "Common\\IUserStorageService.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAvwBEAAAAdAAAAAAAAAA==",
+              "Title": "Ride.cs",
+              "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\Model\\Ride.cs",
+              "RelativeDocumentMoniker": "Common\\Model\\Ride.cs",
+              "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\Model\\Ride.cs",
+              "RelativeToolTip": "Common\\Model\\Ride.cs",
+              "ViewState": "AgIAAAUAAACAzczMzMwnwBQAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T14:59:33.284Z",
+              "WhenOpened": "2024-09-12T21:29:42.439Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "UserDTO.cs",
-              "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\DTO\\UserDTO.cs",
-              "RelativeDocumentMoniker": "Common\\DTO\\UserDTO.cs",
-              "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\DTO\\UserDTO.cs",
-              "RelativeToolTip": "Common\\DTO\\UserDTO.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAYwA0AAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-15T12:57:54.58Z"
             },
             {
               "$type": "Document",
@@ -209,39 +138,142 @@
               "RelativeDocumentMoniker": "Web1\\Controllers\\UserController.cs",
               "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\Controllers\\UserController.cs",
               "RelativeToolTip": "Web1\\Controllers\\UserController.cs",
-              "ViewState": "AgIAABoAAAAAamZmZmYswEQAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAKsAAAAA08zMzAwvwLcAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-13T10:02:02.936Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "Web1.cs",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\Web1.cs",
               "RelativeDocumentMoniker": "Web1\\Web1.cs",
               "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\Web1.cs",
               "RelativeToolTip": "Web1\\Web1.cs",
-              "ViewState": "AgIAAC8AAAAAzMzMzEwmwD4AAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAhwFYAAABYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-04T17:41:47.787Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 3,
+              "Title": "UserStorageService.cs",
+              "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\UserStorageService\\UserStorageService.cs",
+              "RelativeDocumentMoniker": "UserStorageService\\UserStorageService.cs",
+              "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\UserStorageService\\UserStorageService.cs",
+              "RelativeToolTip": "UserStorageService\\UserStorageService.cs",
+              "ViewState": "AgIAABoAAACAzszMzMwnwCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-03T21:49:58.784Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IRideService.cs",
+              "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\IRideService.cs",
+              "RelativeDocumentMoniker": "Common\\IRideService.cs",
+              "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\IRideService.cs",
+              "RelativeToolTip": "Common\\IRideService.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAIAwwA4AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T15:51:17.186Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RideService.cs",
+              "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\RideService\\RideService.cs",
+              "RelativeDocumentMoniker": "RideService\\RideService.cs",
+              "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\RideService\\RideService.cs",
+              "RelativeToolTip": "RideService\\RideService.cs",
+              "ViewState": "AgIAALYAAAAAbWZmZuYnwMUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T15:55:31.897Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "WebSocketHandler.cs",
+              "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\Controllers\\WebSocketHandler.cs",
+              "RelativeDocumentMoniker": "Web1\\Controllers\\WebSocketHandler.cs",
+              "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\Controllers\\WebSocketHandler.cs",
+              "RelativeToolTip": "Web1\\Controllers\\WebSocketHandler.cs",
+              "ViewState": "AgIAACUAAABAZ2ZmZmYfwDgAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T18:14:14.754Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RideDTO.cs",
+              "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\DTO\\RideDTO.cs",
+              "RelativeDocumentMoniker": "Common\\DTO\\RideDTO.cs",
+              "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\DTO\\RideDTO.cs",
+              "RelativeToolTip": "Common\\DTO\\RideDTO.cs",
+              "ViewState": "AgIAAAoAAADczMzMzMwvwB0AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T18:05:39.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IUserStorageService.cs",
+              "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\IUserStorageService.cs",
+              "RelativeDocumentMoniker": "Common\\IUserStorageService.cs",
+              "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\IUserStorageService.cs",
+              "RelativeToolTip": "Common\\IUserStorageService.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAvwBEAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-03T14:59:33.284Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "AzureStorageService.cs",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\AzureStorageService.cs",
               "RelativeDocumentMoniker": "Common\\AzureStorageService.cs",
               "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\AzureStorageService.cs",
               "RelativeToolTip": "Common\\AzureStorageService.cs",
-              "ViewState": "AgIAABYAAAAAzczMzMwZwCYAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAiwCYAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-15T19:13:47.807Z"
+              "WhenOpened": "2024-08-15T19:13:47.807Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
+              "Title": "UserDTO.cs",
+              "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\DTO\\UserDTO.cs",
+              "RelativeDocumentMoniker": "Common\\DTO\\UserDTO.cs",
+              "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\DTO\\UserDTO.cs",
+              "RelativeToolTip": "Common\\DTO\\UserDTO.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAYwBAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-15T12:57:54.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "RideController.cs",
+              "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\Controllers\\RideController.cs",
+              "RelativeDocumentMoniker": "Web1\\Controllers\\RideController.cs",
+              "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\Controllers\\RideController.cs",
+              "RelativeToolTip": "Web1\\Controllers\\RideController.cs",
+              "ViewState": "AgIAADQAAACABAAAAAAIwEgAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T12:14:49.98Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "ServiceEventSource.cs",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\UserStorageService\\ServiceEventSource.cs",
               "RelativeDocumentMoniker": "UserStorageService\\ServiceEventSource.cs",
@@ -253,7 +285,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\RideService\\Program.cs",
               "RelativeDocumentMoniker": "RideService\\Program.cs",
@@ -265,55 +297,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "JWTBearerOptionsSetup.cs",
-              "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\JWT\\JWTBearerOptionsSetup.cs",
-              "RelativeDocumentMoniker": "Web1\\JWT\\JWTBearerOptionsSetup.cs",
-              "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\JWT\\JWTBearerOptionsSetup.cs",
-              "RelativeToolTip": "Web1\\JWT\\JWTBearerOptionsSetup.cs",
-              "ViewState": "AgIAAAwAAAAAcGZmZmbWvwAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T17:16:45.875Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\Program.cs",
-              "RelativeDocumentMoniker": "Web1\\Program.cs",
-              "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\Program.cs",
-              "RelativeToolTip": "Web1\\Program.cs",
-              "ViewState": "AgIAAAoAAACAzczMzMwXwAUAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-07T11:46:52.11Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "JWT.cs",
-              "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\JWT\\JWT.cs",
-              "RelativeDocumentMoniker": "Web1\\JWT\\JWT.cs",
-              "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\JWT\\JWT.cs",
-              "RelativeToolTip": "Web1\\JWT\\JWT.cs",
-              "ViewState": "AgIAAA4AAAAAmZmZmZkewBoAAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T11:34:19.382Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "JWTOptions.cs",
-              "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\JWT\\JWTOptions.cs",
-              "RelativeDocumentMoniker": "Web1\\JWT\\JWTOptions.cs",
-              "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\JWT\\JWTOptions.cs",
-              "RelativeToolTip": "Web1\\JWT\\JWTOptions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T17:16:52.404Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 16,
               "Title": "Web1.csproj",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\Web1.csproj",
               "RelativeDocumentMoniker": "Web1\\Web1.csproj",
@@ -325,19 +309,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\Model\\User.cs",
-              "RelativeDocumentMoniker": "Common\\Model\\User.cs",
-              "ToolTip": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\Model\\User.cs",
-              "RelativeToolTip": "Common\\Model\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-15T18:38:07.115Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 15,
               "Title": "ServiceManifest.xml",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\UserStorageService\\PackageRoot\\ServiceManifest.xml",
               "RelativeDocumentMoniker": "UserStorageService\\PackageRoot\\ServiceManifest.xml",
@@ -349,7 +321,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 17,
               "Title": "ApplicationManifest.xml",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web-Back\\ApplicationPackageRoot\\ApplicationManifest.xml",
               "RelativeDocumentMoniker": "Web-Back\\ApplicationPackageRoot\\ApplicationManifest.xml",
@@ -361,7 +333,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 19,
               "Title": "LoginDTO.cs",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Common\\DTO\\LoginDTO.cs",
               "RelativeDocumentMoniker": "Common\\DTO\\LoginDTO.cs",
@@ -373,7 +345,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 22,
               "Title": "Web1",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\Web1.csproj",
               "RelativeDocumentMoniker": "Web1\\Web1.csproj",
@@ -384,7 +356,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 20,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Web1\\Properties\\launchSettings.json",
@@ -396,7 +368,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 21,
               "Title": "ServiceManifest.xml",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\PackageRoot\\ServiceManifest.xml",
               "RelativeDocumentMoniker": "Web1\\PackageRoot\\ServiceManifest.xml",
@@ -408,7 +380,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 18,
               "Title": "WeatherForecast.cs",
               "DocumentMoniker": "D:\\SNIMANJA\\FAKS JU\\4GODINA\\WEB_2_PROJEKT\\WEB-project-2\\back\\Web-Back\\Web1\\WeatherForecast.cs",
               "RelativeDocumentMoniker": "Web1\\WeatherForecast.cs",

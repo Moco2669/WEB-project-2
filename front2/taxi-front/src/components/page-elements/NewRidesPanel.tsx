@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import IRideEstimate from '../interfaces/IRideEstimate';
-import { getNewRides } from '../services/DriveService';
+import IWaitingRide from '../interfaces/IWaitingRide';
+import { getNewRides, acceptRide } from '../services/RideService';
 
 interface NewRidesProps{
     token:string;
 }
 
 const NewRidesPanel: React.FC<NewRidesProps> = ({token}) => {
-    const [newRides, setNewRides] = useState<IRideEstimate[]>([]);
+    const [newRides, setNewRides] = useState<IWaitingRide[]>([]);
 
     useEffect(() => {
         const fetchNewRides = async () => {
@@ -21,9 +21,9 @@ const NewRidesPanel: React.FC<NewRidesProps> = ({token}) => {
 
     const handleTakeRide = async (user:string) => {
         try{
-            const result = await 
+            const result = await acceptRide(token, user);
         } catch(error){
-
+            console.warn(error);
         }
     }
 
@@ -34,12 +34,16 @@ const NewRidesPanel: React.FC<NewRidesProps> = ({token}) => {
                 {newRides.map(ride => (
                     <li key={ride.user} className='flex justify-between items-center p-2 bg-white mb-2 rounded shadow'>
                         <span>{ride.user}</span>
+                        <span>{ride.startaddress}</span>
+                        <span>{ride.destaddress}</span>
+                        <span>{ride.distance}</span>
+                        <span>{ride.price}</span>
                         <div>
                             <button 
                                 className='bg-green-500 text-white p-2 rounded mr-2'
                                 onClick={() => handleTakeRide(ride.user)}
                             >
-                                Verify
+                                Take Ride
                             </button>
                         </div>
                     </li>
