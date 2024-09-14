@@ -43,6 +43,28 @@ namespace RideService
             ridesTableClient = storage.GetTable("Rides");
         }
 
+        private async Task<bool> IsDriverDriving(string driver)
+        {
+            var allRides = await GetAll();
+            foreach(RideDTO ride in allRides)
+            {
+                if(ride.driver == driver && ride.status != RideStatus.Done) { return true; }
+            }
+            return false;
+        }
+
+        private async Task DeleteRide(string user)
+        {
+            using (var tx = this.StateManager.CreateTransaction())
+            {
+                if(await userRides.ContainsKeyAsync(tx, user))
+                {
+                    await userRides.TryRemoveAsync(tx, user);
+                    await tx.CommitAsync();
+                }
+            }
+        }
+
         private async Task<RideStatus> GetStatus(string user)
         {
             RideDTO ride = null;
@@ -170,6 +192,8 @@ namespace RideService
                 }
                 ride.status = RideStatus.InProgress;
 
+                if (await IsDriverDriving(driver)) { throw new InvalidOperationException("This driver is driving another ride"); }
+
                 Random random = new Random();
                 ride.driver = driver;
                 ride.driverarrivetime = TimeSpan.FromSeconds((random.NextDouble() * (15 - 0.1)) + 0.1);
@@ -199,6 +223,7 @@ namespace RideService
                 var rideEntity = mapper.Map<RideDTO, Ride>(ride);
                 var result = ridesTableClient.AddEntity<Ride>(rideEntity);
                 if (result.IsError) { return false; }
+                await DeleteRide(ride.user);
                 return true;
             }
             catch (Exception ex)
@@ -216,6 +241,64 @@ namespace RideService
             catch (Exception ex)
             {
                 throw new InvalidOperationException("Error when getting waiting rides", ex);
+            }
+        }
+        
+        public async Task<List<RideDTO>> GetPreviousRides(string user)
+        {
+            try
+            {
+                List<RideDTO> previousRides = new();
+                string filter = TableClient.CreateQueryFilter<Ride>(ride => ride.user == user);
+                await foreach(Ride rideEntity in ridesTableClient.QueryAsync<Ride>(filter))
+                {
+                    var rideDto = mapper.Map<Ride, RideDTO>(rideEntity);
+                    previousRides.Add(rideDto);
+                }
+                return previousRides;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Error when getting previous rides", ex);
+            }
+        }
+
+        public async Task<List<RideDTO>> GetDriversRides(string driver)
+        {
+            try
+            {
+                List<RideDTO> driversRides = new();
+                string filter = TableClient.CreateQueryFilter<Ride>(ride => ride.PartitionKey == driver);
+                await foreach(Ride rideEntity in ridesTableClient.QueryAsync<Ride>(filter))
+                {
+                    var rideDto = mapper.Map<Ride, RideDTO>(rideEntity);
+                    driversRides.Add(rideDto);
+                }
+                return driversRides;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Error when getting drivers rides", ex);
+            }
+        }
+
+        public async Task<List<RideDTO>> GetAllRides()
+        {
+            try
+            {
+                List<RideDTO> finishedRides = new();
+                await foreach(Ride rideEntity in ridesTableClient.QueryAsync<Ride>())
+                {
+                    var rideDto = mapper.Map<Ride, RideDTO>(rideEntity);
+                    finishedRides.Add(rideDto);
+                }
+                List<RideDTO> currentRides = await GetAll();
+                finishedRides.AddRange(currentRides);
+                return finishedRides;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Error when getting all rides", ex);
             }
         }
 
@@ -253,7 +336,7 @@ namespace RideService
                 var inProggressRides = await GetWithStatus(RideStatus.InProgress);
                 foreach(RideDTO ride in  inProggressRides)
                 {
-                    if(ride.arrivetime <= DateTime.UtcNow)
+                    if(ride.arrivetime <= DateTime.Now)
                     {
                         ride.status = RideStatus.Done;
                         await AddOrUpdateRide(ride);

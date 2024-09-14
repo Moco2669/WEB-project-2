@@ -14,5 +14,10 @@ namespace Common
         public Task<RideDTO> ConfirmRide(string user);
         public Task<RideDTO> AcceptRide(string user, string driver);
         public Task<List<RideDTO>> GetWaitingRides();
+        public Task<List<RideDTO>> GetPreviousRides(string user);
+        public Task<List<RideDTO>> GetDriversRides(string driver);
+        public Task<List<RideDTO>> GetAllRides();
+        public Task<RideDTO> GetRide(string username);
+        public Task<bool> RateRide(string user,  int rating);
     }
 }

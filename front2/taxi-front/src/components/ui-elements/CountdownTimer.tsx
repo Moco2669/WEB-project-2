@@ -1,19 +1,12 @@
 import React, {useState, useEffect} from 'react';
 
 interface CountdownTimerProps {
-    starttime: string;
-    driverarrivetime: string;
-    traveltime: string;
+    timeLeft:number;
+    phase:"arrive" | "travel";
 }
 
-const calculateTimeRemaining = (targetTime: string): number => {
-    const target = new Date(targetTime).getTime();
-    const now = Date.now();
-    return Math.max(target - now, 0);
-};
-
-const CountdownTimer: React.FC<CountdownTimerProps> = ({ starttime, driverarrivetime, traveltime }) => {
-    const [timeLeft, setTimeLeft] = useState<number>(0);
+const CountdownTimer: React.FC<CountdownTimerProps> = ({ timeLeft, phase}) => {
+/*    const [timeLeft, setTimeLeft] = useState<number>(0);
     const [phase, setPhase] = useState<'arrive' | 'travel'>('arrive');
 
     const parseTimeSpanToMs = (timeSpan: string): number => {
@@ -44,11 +37,9 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ starttime, driverarrive
         const calculateTimeLeft = () => {
             const now = Date.now() + 7200000;
             const razlika = now - (new Date(starttime).getTime());
-            console.log("RAZLIKA " + razlika);
             if (phase === 'arrive') {
                 const arrivalTime = getArrivalTime();
                 const timeUntilArrival = Math.max(arrivalTime - now, 0);
-                console.log("RAZLIKA " + razlika);
                 if (timeUntilArrival === 0) {
                     setPhase('travel');
                 }
@@ -67,6 +58,7 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ starttime, driverarrive
         return () => clearInterval(intervalId);
     }, [phase, starttime, driverarrivetime, traveltime]);
 
+    */
     const minutes = Math.floor(timeLeft / 1000 / 60);
     const seconds = Math.floor((timeLeft / 1000) % 60);
 

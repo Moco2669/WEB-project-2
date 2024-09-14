@@ -16,6 +16,8 @@ namespace Common.AutoMapper
             CreateMap<RideDTO, Ride>()
                 .ForMember(dest => dest.PartitionKey, opt => opt.MapFrom(src => src.driver))
                 .ForMember(dest => dest.RowKey, opt => opt.MapFrom(src => Guid.NewGuid().ToString()));
+            CreateMap<Ride, RideDTO>()
+                .ForMember(dest => dest.status, opt => opt.MapFrom(src => RideStatus.Done));
         }
     }
 }

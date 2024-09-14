@@ -88,6 +88,90 @@ namespace Web1.Controllers
             return Ok(waitingRides);
         }
 
+        [HttpGet]
+        [Authorize]
+        [Route("check")]
+        public async Task<IActionResult> CheckRide()
+        {
+            var username = HttpContext.User.FindFirst(ClaimTypes.Sid)?.Value;
+            if (string.IsNullOrEmpty(username))
+            {
+                return Unauthorized("Invalid token.");
+            }
+            RideDTO ride = await rideServiceProxy.GetRide(username);
+            if(ride == null)
+            {
+                return NotFound();
+            }
+            return Ok(ride);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "User")]
+        [Route("rate")]
+        public async Task<IActionResult> RateRide(RateRideRequest request)
+        {
+            var username = HttpContext.User.FindFirst(ClaimTypes.Sid)?.Value;
+            if (string.IsNullOrEmpty(username))
+            {
+                return Unauthorized("Invalid token.");
+            }
+            if (request.rating > 5) { request.rating = 5; }
+            if (request.rating < 1) { request.rating = 1; }
+            var result = await rideServiceProxy.RateRide(username, request.rating);
+            if(result == false)
+            {
+                return NotFound();
+            }
+            return Ok();
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Admin, User")]
+        [Route("previous")]
+        public async Task<IActionResult> GetPreviousRides()
+        {
+            var username = HttpContext.User.FindFirst(ClaimTypes.Sid)?.Value;
+            if (string.IsNullOrEmpty(username))
+            {
+                return Unauthorized("Invalid token.");
+            }
+            List<RideDTO> previousRides = await rideServiceProxy.GetPreviousRides(username);
+            return Ok(previousRides);
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Driver")]
+        [Route("rider-previous")]
+        public async Task<IActionResult> GetRidersRides()
+        {
+            var username = HttpContext.User.FindFirst(ClaimTypes.Sid)?.Value;
+            if (string.IsNullOrEmpty(username))
+            {
+                return Unauthorized("Invalid token.");
+            }
+            List<RideDTO> previousRides = await rideServiceProxy.GetDriversRides(username);
+            return Ok(previousRides);
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        [Route("all")]
+        public async Task<IActionResult> GetAllRides()
+        {
+            var username = HttpContext.User.FindFirst(ClaimTypes.Sid)?.Value;
+            if (string.IsNullOrEmpty(username))
+            {
+                return Unauthorized("Invalid token.");
+            }
+            List<RideDTO> allRides = await rideServiceProxy.GetAllRides();
+            return Ok(allRides);
+        }
+
+        public class RateRideRequest
+        {
+            public int rating { get; set; }
+        }
         public class RideRequest
         {
             public string startaddress { get; set; }

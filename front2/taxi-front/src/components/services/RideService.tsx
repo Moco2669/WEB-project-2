@@ -40,3 +40,21 @@ export const acceptRide = async (token:string, user:string) => {
     });
     return response.data;
 };
+
+export const checkRide = async (token:string) => {
+    const response = await axios.get(API_ADDRESS + 'ride/check', {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
+    return response.data;
+};
+
+export const rateRide = async(token:string, rate: Number) => {
+    const response = await axios.post(API_ADDRESS + 'ride/rate', {rating:rate}, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
+    return response.data;
+}

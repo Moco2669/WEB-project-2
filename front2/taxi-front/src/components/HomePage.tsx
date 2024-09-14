@@ -10,6 +10,7 @@ import ProfileInfo from './page-elements/ProfileInfo';
 import VerifyUsers from './page-elements/VerifyUsers';
 import NewDrivePanel from './page-elements/NewDrivePanel';
 import NewRidesPanel from './page-elements/NewRidesPanel';
+import PreviousRidesPanel from './page-elements/PreviousRidesPanel';
 
 const HomePage : React.FC = () =>{
     const {isLoggedIn, setToken, token} = useAuth();
@@ -98,8 +99,9 @@ const HomePage : React.FC = () =>{
                         {showProfile && <ProfileInfo user={user} />}
                         {showProfile && <EditProfile user={user} />}
                         {showVerifyUsers && <VerifyUsers token={token?.token ?? ""} />}
-                        {showNewDrive && <NewDrivePanel token={token?.token ?? ""}/>}
+                        {showNewDrive && <NewDrivePanel/>}
                         {showNewDrives && <NewRidesPanel token={token?.token?? ""}/>}
+                        {showPreviousDrives && <PreviousRidesPanel/>}
                     </div>
                 </div>
                 <div className='w-1/4 p-4 flex flex-col space-y-4'>
