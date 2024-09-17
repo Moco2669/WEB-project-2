@@ -9,4 +9,22 @@ export const getPreviousRides = async (token:string) => {
         }
     });
     return response.data;
-}
+};
+
+export const getMyRides = async (token:string) =>{
+    const response = await axios.get(API_ADDRESS + 'ride/driver-previous', {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
+    return response.data;
+};
+
+export const getAllRides = async (token:string) => {
+    const response = await axios.get(API_ADDRESS + 'ride/all', {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
+    return response.data;
+};

@@ -21,6 +21,10 @@ using Newtonsoft.Json.Linq;
 using Microsoft.ServiceFabric.Services.Remoting.Client;
 using System.Text;
 using System.Security.Cryptography;
+using SendGrid;
+using System.Net;
+using SendGrid.Helpers.Mail;
+using Microsoft.ServiceFabric.Services.Client;
 
 namespace Web1.Controllers
 {
@@ -31,6 +35,8 @@ namespace Web1.Controllers
         private readonly JWT.JWT jwt;
         private readonly IMapper _mapper;
         private readonly IUserStorageService userStorageProxy;
+        private readonly IRideService driverStorageProxy;
+        private readonly string emailKey;
 
         private string HashPassword(string password)
         {
@@ -53,12 +59,15 @@ namespace Web1.Controllers
             }
         }
 
-        public UserController(IMapper mapper, JWT.JWT jwt)
+        public UserController(IMapper mapper, JWT.JWT jwt, IConfiguration configuration)
         {
             this.jwt = jwt;
             Uri serviceUri = new Uri("fabric:/Web-Back/UserStorageService");
+            Uri rideUri = new Uri("fabric:/Web-Back/RideService");
             userStorageProxy = ServiceProxy.Create<IUserStorageService>(serviceUri);
+            driverStorageProxy = ServiceProxy.Create<IRideService>(rideUri, new ServicePartitionKey(0), Microsoft.ServiceFabric.Services.Communication.Client.TargetReplicaSelector.PrimaryReplica);
             _mapper = mapper;
+            emailKey = configuration["EmailKey"];
         }
 
         [HttpPost]
@@ -151,11 +160,33 @@ namespace Web1.Controllers
                 return Unauthorized("Invalid token.");
             }
 
-            List<UserDTO> waitingUsers = await userStorageProxy.GetWaitingUsers();
-            return Ok(waitingUsers);
+            List<UserDTO> drivers = await userStorageProxy.GetAllDrivers();
+            List<UserDTO2> driversWithRatings = new();
+            foreach(var driver in drivers)
+            {
+                UserDTO2 driverWithAvg = new(driver);
+                //UserDTO2 driverWithAvg = (UserDTO2)driver;
+                var driversRides = await driverStorageProxy.GetDriversRides(driver.username);
+                if (driversRides.Count > 0)
+                {
+                    double sum = 0;
+                    foreach(RideDTO ride in driversRides)
+                    {
+                        sum += ride.rating;
+                    }
+                    double avg = sum / driversRides.Count;
+                    driverWithAvg.avgRating = avg;
+                }
+                else
+                {
+                    driverWithAvg.avgRating = 0;
+                }
+                driversWithRatings.Add(driverWithAvg);
+            }
+            return Ok(driversWithRatings);
         }
 
-        [HttpPut]
+        /*[HttpPut]
         [Authorize(Roles = "Admin")]
         [Route("validate-user/{username}")]
         public async Task<IActionResult> ValidateUser(string username)
@@ -177,7 +208,7 @@ namespace Web1.Controllers
                 return BadRequest();
             }
             return Ok();
-        }
+        }*/
 
         [HttpPut]
         [Route("validate-user-new")]
@@ -185,7 +216,8 @@ namespace Web1.Controllers
         public async Task<IActionResult> ValidateUserNew(Request1 req)
         {
             var result = await userStorageProxy.ValidateUser(req.username);
-            if (!result) { return BadRequest(); }
+            if (result == null) { return BadRequest(); }
+            await SendEmail(result.email);
             return Ok();
         }
 
@@ -197,6 +229,21 @@ namespace Web1.Controllers
             var result = await userStorageProxy.RejectUser(req.username);
             if (!result) { return BadRequest(); }
             return Ok();
+        }
+
+        private async Task<bool> SendEmail(string email)
+        {
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            string api_key = emailKey;
+            // string api_secret = "API_SECRET";
+            var client = new SendGridClient(api_key);
+            var fromEmail = new EmailAddress("ebdldv3@gmail.com", "RCA Projekat");
+            var toEmail = new EmailAddress(email, email.Split('@')[0]);
+            var text = "Your taxi driver account has been verified!";
+            var msg = MailHelper.CreateSingleEmail(fromEmail, toEmail, "Verification notification", text, text);
+            var response = await client.SendEmailAsync(msg);
+            return response.IsSuccessStatusCode;
         }
 
         public class Request1

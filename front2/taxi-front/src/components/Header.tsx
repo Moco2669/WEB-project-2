@@ -25,7 +25,7 @@ const Header : React.FC<HeaderProps> = ({user, onShowProfile}) =>{
         <span className="text-xl font-semibold">Taxi app</span>
       </div>
 
-      {isLoggedIn && user && (
+      {token && user && (
         <div className="flex items-center">
           <span className="mr-4">Welcome, <button onClick={onShowProfile} className="hover:underline">{user.username}</button>!</span>
           {user.imagebase64 && (
@@ -35,14 +35,14 @@ const Header : React.FC<HeaderProps> = ({user, onShowProfile}) =>{
               className="h-10 w-10 rounded-full object-cover mr-4"
             />
           )}
-                    <button
+        </div>
+      )}
+          <button
             onClick={handleSignOut}
             className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg"
           >
             Sign Out
           </button>
-        </div>
-      )}
     </header>
   );
 }

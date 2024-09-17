@@ -6,6 +6,8 @@ interface IRideDetails extends IRideEstimate {
     //traveltime:TimeRanges;
     arrivetime:string;
     driver:string;
+    user:string;
+    rating:number;
 };
 
 export default IRideDetails;

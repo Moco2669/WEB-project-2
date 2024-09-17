@@ -17,8 +17,9 @@ namespace Common
         public Task<string> InsertUserImage(byte[] imageArray, string imageName);
         public Task<UserDTO> GetUser(string username);
         public Task<List<UserDTO>> GetWaitingUsers();
+        public Task<List<UserDTO>> GetAllDrivers();
         public Task<string> GetUserImage(string imageBlobLink);
-        public Task<bool> ValidateUser(string username);
+        public Task<UserDTO> ValidateUser(string username);
         public Task<bool> RejectUser(string username);
     }
 }

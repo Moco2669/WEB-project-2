@@ -179,18 +179,74 @@ namespace UserStorageService
             }
         }
 
-        public async Task<bool> ValidateUser(string username)
+        public async Task<List<UserDTO>> GetAllDrivers()
         {
             try
             {
+                List<User> users = newUsersTableClient.Query<User>().ToList();
+                List<UserDTO> userDTOs = new List<UserDTO>();
+                foreach (User user in users)
+                {
+                    var userDto = mapper.Map<User, UserDTO>(user);
+                    userDto.verifystatus = VerifyStatus.Waiting;
+                    userDTOs.Add(userDto);
+                }
+                List<User> verifiedUsers = usersTableClient.Query<User>().ToList();
+                foreach (User user in verifiedUsers)
+                {
+                    if(user.usertype == UserType.Driver)
+                    {
+                        var userDto = mapper.Map<User, UserDTO>(user);
+                        userDto.verifystatus = VerifyStatus.Verified;
+                        // TODO: CALCULATE AVG RATING
+                        userDTOs.Add(userDto);
+                    }
+                }
+                List<User> rejectedUsers = rejectedUsersTableClient.Query<User>().ToList();
+                foreach (User user in rejectedUsers)
+                {
+                    var userDto = mapper.Map<User, UserDTO>(user);
+                    userDto.verifystatus = VerifyStatus.Rejected;
+                    userDTOs.Add(userDto);
+                }
+                return userDTOs;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Error when getting all drivers", ex);
+            }
+        }
+        public async Task<UserDTO> ValidateUser(string username)
+        {
+            try
+            {
+                bool isAlreadyRejected = false;
                 var result = newUsersTableClient.GetEntityIfExists<User>(username, username);
-                if (!result.HasValue) { throw new Exception("User doesn't exist"); }
+                if (!result.HasValue)
+                {
+                    result = rejectedUsersTableClient.GetEntityIfExists<User>(username, username);
+                    if(!result.HasValue)
+                    {
+                        throw new Exception("User doesn't exist");
+                    }
+                    isAlreadyRejected = true;
+                }
                 var userEntity = result.Value;
-                var result1 = newUsersTableClient.DeleteEntity(userEntity);
-                if (result1.IsError) { return false; }
-                result1 = usersTableClient.AddEntity<User>(userEntity);
-                if (result1.IsError) { return false; }
-                return true;
+                var userDto = mapper.Map<User, UserDTO>(userEntity);
+                userDto.verifystatus = VerifyStatus.Verified;
+                if (!isAlreadyRejected)
+                {
+                    var result1 = newUsersTableClient.DeleteEntity(userEntity);
+                    if (result1.IsError) { return null; }
+                }
+                else
+                {
+                    var result1 = rejectedUsersTableClient.DeleteEntity(userEntity);
+                    if (result1.IsError) { return null; }
+                }
+                var result2 = usersTableClient.AddEntity<User>(userEntity);
+                if (result2.IsError) { return null; }
+                return userDto;
             }
             catch(Exception ex)
             {
@@ -202,13 +258,27 @@ namespace UserStorageService
         {
             try
             {
+                bool removedFromRegularTable = false;
                 var result = newUsersTableClient.GetEntityIfExists<User>(username, username);
-                if (!result.HasValue) { throw new Exception("User doesn't exist"); }
+                if (!result.HasValue)
+                {
+                    result = usersTableClient.GetEntityIfExists<User>(username, username);
+                    if (!result.HasValue) { throw new Exception("User doesn't exist"); }
+                    removedFromRegularTable = true;
+                }
                 var userEntity = result.Value;
-                var result1 = newUsersTableClient.DeleteEntity(userEntity);
-                if (result1.IsError) { return false; }
-                result1 = rejectedUsersTableClient.AddEntity<User>(userEntity);
-                if (result1.IsError) { return false; }
+                if (!removedFromRegularTable)
+                {
+                    var result1 = newUsersTableClient.DeleteEntity(userEntity);
+                    if (result1.IsError) { return false; }
+                }
+                else
+                {
+                    var result1 = usersTableClient.DeleteEntity(userEntity);
+                    if (result1.IsError) { return false; }
+                }
+                var result2 = rejectedUsersTableClient.AddEntity<User>(userEntity);
+                if (result2.IsError) { return false; }
                 return true;
             }
             catch(Exception ex)

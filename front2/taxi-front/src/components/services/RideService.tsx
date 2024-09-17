@@ -57,4 +57,13 @@ export const rateRide = async(token:string, rate: Number) => {
         }
     });
     return response.data;
+};
+
+export const checkRidersRide = async (token:string) => {
+    const response = await axios.get(API_ADDRESS + 'ride/driver-check', {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
+    return response.data;   
 }

@@ -40,7 +40,7 @@ namespace Web1.Controllers
             {
                 return Unauthorized("Invalid token.");
             }
-            RideDTO currentRide= new RideDTO() { user = username, startaddress = ride.startaddress, destaddress = ride.destaddress };
+            RideDTO currentRide= new RideDTO() { user = username, startaddress = ride.startaddress, destaddress = ride.destaddress, rating = 0 };
             var rideEstimate = await rideServiceProxy.EstimateRide(currentRide);
             return Ok(rideEstimate);
         }
@@ -68,6 +68,11 @@ namespace Web1.Controllers
             if (string.IsNullOrEmpty(drivername))
             {
                 return Unauthorized("Invalid token.");
+            }
+            var driverDto = await userStorageProxy.GetUser(drivername);
+            if(driverDto.verifystatus != VerifyStatus.Verified)
+            {
+                return Unauthorized("Driver is not verified");
             }
             var acceptedRide = await rideServiceProxy.AcceptRide(ride.user, drivername);
             await WebSocketHandler.NotifyUserAsync(ride.user, acceptedRide);
@@ -100,6 +105,24 @@ namespace Web1.Controllers
             }
             RideDTO ride = await rideServiceProxy.GetRide(username);
             if(ride == null)
+            {
+                return NotFound();
+            }
+            return Ok(ride);
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Driver")]
+        [Route("driver-check")]
+        public async Task<IActionResult> CheckDriversRide()
+        {
+            var username = HttpContext.User.FindFirst(ClaimTypes.Sid)?.Value;
+            if (string.IsNullOrEmpty(username))
+            {
+                return Unauthorized("Invalid token.");
+            }
+            RideDTO ride = await rideServiceProxy.GetRide(username);
+            if (ride == null)
             {
                 return NotFound();
             }
@@ -142,7 +165,7 @@ namespace Web1.Controllers
 
         [HttpGet]
         [Authorize(Roles = "Driver")]
-        [Route("rider-previous")]
+        [Route("driver-previous")]
         public async Task<IActionResult> GetRidersRides()
         {
             var username = HttpContext.User.FindFirst(ClaimTypes.Sid)?.Value;

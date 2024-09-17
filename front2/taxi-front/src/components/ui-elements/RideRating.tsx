@@ -2,17 +2,20 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import { rateRide } from '../services/RideService';
 import useAuth from '../contexts/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 const RideRating: React.FC = () => {
     const [rating, setRating] = useState<number>(0);
     const [hoverRating, setHoverRating] = useState<number>(0);
     const {token} = useAuth();
+    const navigate = useNavigate();
 
     const handleRating = async (newRating: number) => {
         setRating(newRating);
         try {
             if(token?.token){
                 rateRide(token.token, newRating);
+                navigate('/');
             }
         } catch (error) {
             console.error("Error submitting rating:", error);

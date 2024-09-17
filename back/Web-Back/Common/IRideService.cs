@@ -18,6 +18,7 @@ namespace Common
         public Task<List<RideDTO>> GetDriversRides(string driver);
         public Task<List<RideDTO>> GetAllRides();
         public Task<RideDTO> GetRide(string username);
+        public Task<RideDTO> GetDriversRide(string driver);
         public Task<bool> RateRide(string user,  int rating);
     }
 }

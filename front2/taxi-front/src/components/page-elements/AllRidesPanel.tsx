@@ -1,30 +1,29 @@
 import React, {useEffect, useState} from "react";
 import useAuth from "../contexts/useAuth";
-import { getPreviousRides } from "../services/PreviousRidesService";
 import IRideDetails from "../interfaces/IRideDetails";
+import { getAllRides } from "../services/PreviousRidesService";
 
-const PreviousRidesPanel: React.FC = () => {
-    const [previousRides, setPreviousRides] = useState<IRideDetails[]>([]);
-    const {token} = useAuth();
+const AllRidesPanel: React.FC = () => {
+    const [allRides, setAllRides] = useState<IRideDetails[]>([]);
+    const{token} = useAuth();
 
     useEffect(() => {
 
-        const fetchPreviousRides = async () => {
+        const fetchAllRides = async () => {
             if(token?.token){
-                const rides = await getPreviousRides(token?.token);
-                setPreviousRides(rides);
+                const rides = await getAllRides(token?.token);
+                setAllRides(rides);
             }
         };
 
-        fetchPreviousRides();
-        //console.log(previousRides);
+        fetchAllRides();
     }, [token?.token]);
 
     return(
         <div>
-            <h2 className='text-xl mb-4'>Previous Rides</h2>
+            <h2 className='text-xl mb-4'>All Rides</h2>
             <ul>
-                {previousRides.map(ride => (
+                {allRides.map(ride => (
                     <li className='flex justify-between items-center p-2 bg-white mb-2 rounded shadow'>
                         <span>{ride.driver}</span>
                         <span>{ride.startaddress}</span>
@@ -32,6 +31,7 @@ const PreviousRidesPanel: React.FC = () => {
                         <span>{ride.price}</span>
                         <span>{ride.distance}</span>
                         <span>{ride.rating}</span>
+                        <span>{ride.status}</span>
                     </li>
                 ))}
             </ul>
@@ -39,4 +39,4 @@ const PreviousRidesPanel: React.FC = () => {
     );
 };
 
-export default PreviousRidesPanel;
+export default AllRidesPanel;
