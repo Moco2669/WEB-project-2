@@ -124,7 +124,7 @@ const NewRidesPanel: React.FC = () => {
 
     if(rideStatus === "InProgress" && rideDetails){
         return (
-            <div>
+            <div className='flex items-center'>
                 <h3>Ride Accepted!</h3>
                 <CountdownTimer timeLeft={timeLeft} phase={phase}/>
                 <p>Destination: {rideDetails.destaddress}</p>
@@ -136,25 +136,59 @@ const NewRidesPanel: React.FC = () => {
     return (
         <div>
             <h2 className='text-xl mb-4'>Rides</h2>
-            <ul>
-                {newRides.map(ride => (
-                    <li key={ride.user} className='flex justify-between items-center p-2 bg-white mb-2 rounded shadow'>
-                        <span>{ride.user}</span>
-                        <span>{ride.startaddress}</span>
-                        <span>{ride.destaddress}</span>
-                        <span>{ride.distance}</span>
-                        <span>{ride.price}</span>
-                        <div>
-                            <button 
-                                className='bg-green-500 text-white p-2 rounded mr-2'
-                                onClick={() => handleTakeRide(ride.user)}
-                            >
-                                Take Ride
-                            </button>
-                        </div>
-                    </li>
-                ))}
-            </ul>
+            <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" className="px-6 py-3">
+                            User
+                        </th>
+                        <th scope="col" className="px-6 py-3">
+                            Start Address
+                        </th>
+                        <th scope="col" className="px-6 py-3">
+                            Destination Address
+                        </th>
+                        <th scope="col" className="px-6 py-3">
+                            Price
+                        </th>
+                        <th scope="col" className="px-6 py-3">
+                            Distance
+                        </th>
+                        <th scope="col" className="px-6 py-3">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {newRides.map(ride => (
+                        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-200 transition-colors">
+                            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                {ride.user}
+                            </th>
+                            <td className="px-6 py-4">
+                                {ride.startaddress}
+                            </td>
+                            <td className="px-6 py-4">
+                                {ride.destaddress}
+                            </td>
+                            <td className="px-6 py-4">
+                                {ride.price}
+                            </td>
+                            <td className="px-6 py-4">
+                                {ride.distance}
+                            </td>
+                            <td className="px-6 py-4">
+                                <button
+                                    className='bg-green-500 text-white p-2 rounded mr-2 w-full hover:bg-green-700 transition-colors'
+                                    onClick={() => handleTakeRide(ride.user)}
+                                >
+                                    Take Ride
+                                </button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     );
 };

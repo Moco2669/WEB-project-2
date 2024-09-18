@@ -95,9 +95,11 @@ const LandingPage : React.FC = () =>{
                         <p className='mt-4 text-primary-600 p-3'>{loginError}</p>
                     )}
                 </div>
+                <div>
+                    <GoogleSignInButton></GoogleSignInButton>
+                </div>
             </div>
         </form>
-        <GoogleSignInButton></GoogleSignInButton>
     </div>
     );
 }

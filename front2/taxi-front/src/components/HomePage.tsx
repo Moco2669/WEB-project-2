@@ -95,11 +95,11 @@ const HomePage : React.FC = () =>{
         <div className='homepage-container min-h-screen flex flex-col'>
             <Header user={user} onShowProfile={handleShowProfile} />
             {verifyStatus==="Verified" && (
-            <div className='flex flex-grow justify-end mx-26 relative bg-gray-100'>
-                <div className='w-3/4 p-4 bg-gray-100'>
-                    <div className={`left-panel w-1/4 p-4 bg-gray-100`}>
+            <div className='flex flex-grow justify-end mx-26 relative bg-gray-100 w-full'>
+                <div className='w-3/4 p-4 bg-gray-100 max-h-screen overflow-auto'>
+                    <div className={`left-panel w-full p-4 bg-gray-100 items-center`}>
                         {showProfile && <ProfileInfo user={user} />}
-                        {showProfile && <EditProfile user={user} />}
+                        {showProfile && user && <EditProfile user={user} />}
                         {showVerifyUsers && <VerifyUsers token={token?.token ?? ""} />}
                         {showNewDrive && <NewDrivePanel/>}
                         {showNewDrives && <NewRidesPanel/>}
@@ -111,30 +111,30 @@ const HomePage : React.FC = () =>{
                 <div className='w-1/4 p-4 flex flex-col space-y-4'>
                     {user?.usertype === 'Admin' && (
                         <div className='flex flex-col space-y-4'>
-                            <button onClick={handleShowVerifyUsers} className='select-none rounded-lg p-3 bg-lime-600 mb-4'>
+                            <button onClick={handleShowVerifyUsers} className='select-none rounded-lg p-3 bg-green-500 mb-4 hover:bg-green-700 transition-colors'>
                                 Verify Users
                             </button>
-                            <button onClick={handleShowAllDrives} className='select-none rounded-lg p-3 bg-lime-600 mb-4'>
+                            <button onClick={handleShowAllDrives} className='select-none rounded-lg p-3 bg-green-500 mb-4 hover:bg-green-700 transition-colors'>
                                 View All Drives
                             </button>
                         </div>
                     )}
                     {user?.usertype === 'User' && (
                         <div className='flex flex-col space-y-4'>
-                            <button onClick={handleShowNewDrive} className='select-none rounded-lg p-3 bg-lime-600 mb-4'>
+                            <button onClick={handleShowNewDrive} className='select-none rounded-lg p-3 bg-green-500 mb-4 hover:bg-green-700 transition-colors'>
                                 New Drive
                             </button>
-                            <button onClick={handleShowPreviousDrives} className='select-none rounded-lg p-3 bg-lime-600 mb-4'>
+                            <button onClick={handleShowPreviousDrives} className='select-none rounded-lg p-3 bg-green-500 mb-4 hover:bg-green-700 transition-colors'>
                                 Previous Drives
                             </button>
                         </div>
                     )}
                     {user?.usertype === 'Driver' && (
                         <div className='flex flex-col space-y-4'>
-                            <button onClick={handleShowNewDrives} className='select-none rounded-lg p-3 bg-lime-600 mb-4'>
+                            <button onClick={handleShowNewDrives} className='select-none rounded-lg p-3 bg-green-500 mb-4 hover:bg-green-700 transition-colors'>
                                 New Drives
                             </button>
-                            <button onClick={handleShowMyDrives} className='select-none rounded-lg p-3 bg-lime-600 mb-4'>
+                            <button onClick={handleShowMyDrives} className='select-none rounded-lg p-3 bg-green-500 mb-4 hover:bg-green-700 transition-colors'>
                                 My Drives
                             </button>
                         </div>
@@ -143,7 +143,7 @@ const HomePage : React.FC = () =>{
             </div>
             )}
             {(verifyStatus==="Rejected" || verifyStatus==="Waiting") && (
-                <div className='flex justify-end mx-26 relative h-full bg-gray-100'>
+                <div className='flex mx-26 relative h-full bg-gray-100'>
                     Your Driver verification status is {verifyStatus}. Please contact admins for further information.
                 </div>
             )}

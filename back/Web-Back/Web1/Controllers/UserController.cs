@@ -90,7 +90,7 @@ namespace Web1.Controllers
 
             string imageBlobLink = null;
 
-            if(userDto.image == null) { return BadRequest(); }
+            if (userDto.image == null) { return BadRequest(); }
             userDto.imagebytearray = ConvertIFormFileToByteArray(userDto.image);
             var imagename = userDto.image.FileName;
             userDto.image = null;
@@ -106,6 +106,36 @@ namespace Web1.Controllers
             var result1 = await userStorageProxy.InsertUser(userDto, imageBlobLink);
             if (!result1) { return BadRequest(); }
             return Ok(new { token = jwt.GenerateToken(userDto.username, userDto.usertype) });
+        }
+
+        [HttpPost]
+        [Authorize]
+        [Route("edit")]
+        public async Task<IActionResult> EditProfile([FromForm] UserDTO3 userDTO)
+        {
+            var username = HttpContext.User.FindFirst(ClaimTypes.Sid)?.Value;
+            if (string.IsNullOrEmpty(username))
+            {
+                return Unauthorized("Invalid token.");
+            }
+            var imageBlobLink = "";
+            userDTO.password = HashPassword(userDTO.password);
+            if(userDTO.image == null)
+            {
+                var result = await userStorageProxy.UpdateUser(userDTO, username);
+                if(!result) { return BadRequest(); }
+                return Ok();
+            }
+            else
+            {
+                userDTO.imagebytearray = ConvertIFormFileToByteArray(userDTO.image);
+                var imagename = userDTO.image.FileName;
+                userDTO.image = null;
+                imageBlobLink = await userStorageProxy.InsertUserImage(userDTO.imagebytearray, imagename);
+                var result = await userStorageProxy.UpdateUserAndImage(userDTO, imageBlobLink, username);
+                if (!result) { return BadRequest(); }
+                return Ok();
+            }
         }
 
         [HttpPost]

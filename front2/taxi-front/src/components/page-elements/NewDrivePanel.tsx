@@ -73,7 +73,7 @@ const NewDrivePanel : React.FC = () => {
                     if(arrivalTime){
                         const timeUntilArrival = Math.max(arrivalTime - now, 0);
                         if (timeUntilArrival === 0) {
-                            setPhase('travel');
+                            setPhase((prev) => prev = 'travel');
                         }
                         console.log(phase);
                         setTimeLeft(timeUntilArrival);
@@ -151,6 +151,7 @@ const NewDrivePanel : React.FC = () => {
                 if (updatedRide.status === 'InProgress') {
                     setRideStatus(updatedRide.status);
                     setRideDetails(updatedRide);
+                    setPhase('arrive');
                 }
             };
 
@@ -162,7 +163,7 @@ const NewDrivePanel : React.FC = () => {
 
     if (rideStatus === 'Done') {
         return (
-            <div>
+            <div className='flex items-center'>
                 <h3>Ride Completed!</h3>
                 <RideRating />
             </div>
@@ -171,7 +172,7 @@ const NewDrivePanel : React.FC = () => {
 
     if (rideStatus === 'Waiting') {
         return (
-            <div>
+            <div className='flex items-center'>
                 <h3>Your ride is waiting for a driver...</h3>
             </div>
         );
@@ -179,7 +180,7 @@ const NewDrivePanel : React.FC = () => {
 
     if (rideStatus === 'InProgress' && rideDetails) {
         return (
-            <div>
+            <div className='flex items-center'>
                 <h3>Ride Accepted!</h3>
                 <CountdownTimer timeLeft={timeLeft} phase={phase}/>
                 <p>Destination: {rideDetails.destaddress}</p>
@@ -213,7 +214,7 @@ const NewDrivePanel : React.FC = () => {
                 </div>
             </form>
             {rideEstimate && (
-                <div className='mt-4'>
+                <div className='mt-4 items-center'>
                     <h3 className='text-lg font-bold'>Ride Estimate</h3>
                     <p>Distance: {rideEstimate.distance.toFixed(2)} km</p>
                     <p>Travel Time: {rideEstimate.traveltime}</p>

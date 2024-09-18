@@ -76,19 +76,19 @@ const Register : React.FC = () => {
     };
 
     return(
-        <div className='flex justify-end mx-26 relative mb-8'>
-            <form onSubmit={handleSubmit} className='mx-auto mb-4 mt-8 max-w-md space-y-4'>
-                <div className='relative space-y-4'>
-                    <label htmlFor='email' className='sr-only'>
-                        Email
-                    </label>
+        <div className='flex justify-center items-center w-screen h-screen'>
+            <form onSubmit={handleSubmit} className='register-card'>
+                <div className='space-y-2'>
                     <div className='relative'>
+                        <label htmlFor='email'>
+                            Email
+                        </label>
                         <input type='email' autoFocus value={registerModel.email} onChange={(e)=> handleChange(e, "email")} className='w-full rounded-lg border-2 p-3' placeholder='Email'/>
                     </div>
-                    <label htmlFor='password' className='sr-only'>
-                        Password
-                    </label>
                     <div className='relative'>
+                        <label htmlFor='password'>
+                            Password
+                        </label>
                         <input type='password' value={registerModel.password} onChange={(e)=>handleChange(e, "password")} className='w-full rounded-lg border-2 p-3' placeholder='Password'/>
                     </div>
                     <div className='relative'>

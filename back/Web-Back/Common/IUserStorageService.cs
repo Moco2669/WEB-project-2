@@ -21,5 +21,7 @@ namespace Common
         public Task<string> GetUserImage(string imageBlobLink);
         public Task<UserDTO> ValidateUser(string username);
         public Task<bool> RejectUser(string username);
+        public Task<bool> UpdateUser(UserDTO3 userDTO, string username);
+        public Task<bool> UpdateUserAndImage(UserDTO3 userDTO, string imageBlobLink, string username);
     }
 }

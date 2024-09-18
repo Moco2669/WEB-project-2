@@ -287,6 +287,50 @@ namespace UserStorageService
             }
         }
 
+        public async Task<bool> UpdateUser(UserDTO3 userDTO, string username)
+        {
+            try
+            {
+                var result = await usersTableClient.GetEntityIfExistsAsync<User>(username, username);
+                var userEntity = result.Value;
+                userEntity.firstname = userDTO.firstname;
+                userEntity.lastname = userDTO.lastname;
+                userEntity.address = userDTO.address;
+                userEntity.birthdate = userDTO.birthdate;
+                userEntity.email = userDTO.email;
+                userEntity.password = userDTO.password;
+                var result1 = await usersTableClient.UpdateEntityAsync<User>(userEntity, userEntity.ETag, TableUpdateMode.Replace);
+                return !result1.IsError;
+            }
+            catch(Exception ex)
+            {
+                throw new InvalidOperationException("Error when updating user", ex);
+            }
+        }
+
+        public async Task<bool> UpdateUserAndImage(UserDTO3 userDTO, string imageBlobLink, string username)
+        {
+            try
+            {
+                var result = await usersTableClient.GetEntityIfExistsAsync<User>(username, username);
+                var userEntity = result.Value;
+                await blobContainerClient.DeleteBlobAsync(userEntity.imageBlobLink);
+                userEntity.firstname = userDTO.firstname;
+                userEntity.lastname = userDTO.lastname;
+                userEntity.address = userDTO.address;
+                userEntity.birthdate = userDTO.birthdate;
+                userEntity.email = userDTO.email;
+                userEntity.password = userDTO.password;
+                userEntity.imageBlobLink = imageBlobLink;
+                var result1 = await usersTableClient.UpdateEntityAsync<User>(userEntity, userEntity.ETag, TableUpdateMode.Replace);
+                return !result1.IsError;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Error when updating user", ex);
+            }
+        }
+
         public byte[] ConvertIFormFileToByteArray(IFormFile file)
         {
             if (file == null || file.Length == 0)

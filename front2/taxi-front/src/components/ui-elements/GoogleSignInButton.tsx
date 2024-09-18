@@ -57,7 +57,7 @@ const GoogleSignInButton: React.FC = () => {
   });
 
   return (
-    <button className='select-none rounded-lg p-3 bg-lime-600' onClick={() => googleLogin()}>
+    <button type='button' className='select-none rounded-lg p-3 bg-lime-600 w-full' onClick={() => googleLogin()}>
       Sign in via Google
     </button>
   );

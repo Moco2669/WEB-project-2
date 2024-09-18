@@ -23,7 +23,7 @@ const RideRating: React.FC = () => {
     };
 
     return (
-        <div>
+        <div className='items-center'>
             <h3>Rate your ride:</h3>
             <div style={{ display: 'flex' }}>
                 {Array(5).fill(0).map((_, index) => {
